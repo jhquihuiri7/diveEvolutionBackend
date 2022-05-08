@@ -23,3 +23,14 @@ type Value struct {
 	Description string `bson:"description"`
 	Values []string `bson:"values"`
 }
+
+type AboutImg struct {
+	Id string `bson:"_id"`
+	HistoryImg `bson:"historyImg"`
+	VissionImg string `bson:"vissionImg"`
+	ValueImg []string `bson:"valueImg"`
+}
+type HistoryImg struct {
+	Background string `bson:"background"`
+	Logo string `bson:"logo"`
+}

@@ -52,6 +52,16 @@ func GetLang(lang, routeName string)string{
 		}else {
 			return "a85f6d25-63ff-4b88-af9a-24671923e884"
 		}
+	}else if routeName == "courses"{
+		if lang == "es"{
+			return "ab0c5aa3-a761-4e19-a452-79bc02b4ccf3"
+		}else if lang == "en"{
+			return "7a6610c6-5aa6-4e44-8e9a-39cae82a79e8"
+		}else if lang == "fr"{
+			return "4b5ee0ba-9376-4e6d-aa21-14f28a74df2d"
+		}else {
+			return "ab0c5aa3-a761-4e19-a452-79bc02b4ccf3"
+		}
 	}else {
 		return ""
 	}

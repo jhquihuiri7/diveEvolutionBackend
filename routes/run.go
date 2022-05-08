@@ -21,9 +21,12 @@ func RunApp(){
 	router.HandleFunc("/", Home).Methods("GET")
 	router.HandleFunc("/api/getIndex/{lang}", IndexHandler).Methods("GET")
 	router.HandleFunc("/api/getAbout/{lang}", AboutHandler).Methods("GET")
+	router.HandleFunc("/api/getCourses/{lang}", CoursesHandler).Methods("GET")
 	router.HandleFunc("/api/getContact/{lang}", ContactHandler).Methods("GET")
 	router.HandleFunc("/api/getFooter/{lang}", FooterHandler).Methods("GET")
 	router.HandleFunc("/api/getIndexImg", IndexImgHandler).Methods("GET")
+	router.HandleFunc("/api/getAboutImg", AboutImgHandler).Methods("GET")
+	router.HandleFunc("/api/getCoursesImg", CoursesImgHandler).Methods("GET")
 	router.HandleFunc("/api/getContactImg", ContactImgHandler).Methods("GET")
 	router.HandleFunc("/api/getHeaderImg", HeaderImgHandler).Methods("GET")
 	router.HandleFunc("/api/getFooterImg", FooterImgHandler).Methods("GET")
@@ -34,14 +37,21 @@ func RunApp(){
 	router.HandleFunc("/api/updateIndexBody", writeIndexBody).Methods("GET")
 	router.HandleFunc("/api/updateContactBody", writeContactBody).Methods("GET")
 	router.HandleFunc("/api/updateNosotros", writeNosotrosBody).Methods("GET")
+	router.HandleFunc("/api/updateCourses", writeCoursesBody).Methods("GET")
 	router.HandleFunc("/api/updateContactImg", writeContactImg).Methods("GET")
+	router.HandleFunc("/api/updateNosotrosImg", writeAboutImg).Methods("GET")
+	router.HandleFunc("/api/updateCoursesImg", writeCoursesImg).Methods("GET")
+
 	methods := handlers.AllowedMethods([]string{"GET", "POST"})
 	origin := handlers.AllowedOrigins([]string{"*"})
 	port := os.Getenv("PORT")
 	http.ListenAndServe(":"+port, handlers.CORS(methods, origin)(router))
 }
 func Home (w http.ResponseWriter, r *http.Request){
-	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n/api/getContact/es\n/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg"))
+	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n" +
+		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n" +
+		"/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg\n"+
+		"/api/getAboutImg/es\n/api/getCoursesImg\n/api/getContactImg/es\n"))
 }
 func writeHeader(w http.ResponseWriter, r *http.Request){
 	data := models.HeaderImg{
@@ -160,4 +170,101 @@ func writeNosotrosBody(w http.ResponseWriter, r *http.Request){
 	}
 	AboutBody := Client.Database("DiveEvolution").Collection("About")
 	AboutBody.InsertOne(context.TODO(),data)
+}
+func writeAboutImg(w http.ResponseWriter, r *http.Request){
+	data := models.AboutImg{
+		Id: uuid.NewV4().String(),
+		HistoryImg: models.HistoryImg{
+			Background: "https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			Logo: "https://res.cloudinary.com/logicielapplab/image/upload/v1652031313/DiveEvolution/About/penguin-gb2d6782e2_1920_xrirai.jpg",
+		},
+		VissionImg: "https://res.cloudinary.com/logicielapplab/image/upload/v1652031313/DiveEvolution/About/penguin-gb2d6782e2_1920_xrirai.jpg",
+		ValueImg: []string{"","","",""},
+	}
+	ContactImg := Client.Database("DiveEvolution").Collection("AboutImg")
+	ContactImg.InsertOne(context.TODO(),data)
+}
+func writeCoursesBody(w http.ResponseWriter, r *http.Request){
+	data := models.Courses{
+		Id: uuid.NewV4().String(),
+		Methodology: models.Methodology{
+			Title: "FRMetodologia",
+			Methods: []models.Method{
+				models.Method{
+					Title: "EVO PSS",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Question1: "Como funciona",
+					Works: "Lorem Ipsum is simply dummy text",
+					Question2: "Ventajas",
+					Advantages: []string{"Hola","Mundo","Logiciel"},
+				},
+				models.Method{
+					Title: "E-Learning",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Question1: "Como funciona",
+					Works: "Lorem Ipsum is simply dummy text",
+					Question2: "Ventajas",
+					Advantages: []string{"Hola","Mundo","Logiciel"},
+				},
+				models.Method{
+					Title: "Plataforma PSS",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Question1: "Como funciona",
+					Works: "Lorem Ipsum is simply dummy text",
+					Question2: "Ventajas",
+					Advantages: []string{"Hola","Mundo","Logiciel"},
+				},
+			},
+		},
+		CourseTypes: []models.Course{
+			models.Course{
+				Ref: uuid.NewV4().String(),
+				Title: "Open Water",
+				Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+				Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+				Price: 250,
+			},
+			models.Course{
+				Ref: uuid.NewV4().String(),
+				Title: "Intermedium",
+				Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+				Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+				Price: 250,
+			},
+			models.Course{
+				Ref: uuid.NewV4().String(),
+				Title: "Advanced",
+				Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+				Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+				Price: 250,
+			},
+			models.Course{
+				Ref: uuid.NewV4().String(),
+				Title: "Dive Master",
+				Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+				Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+				Price: 250,
+			},
+		},
+	}
+	ContactBody := Client.Database("DiveEvolution").Collection("Courses")
+	ContactBody.InsertOne(context.TODO(),data)
+}
+func writeCoursesImg(w http.ResponseWriter, r *http.Request){
+	data := models.CoursesImg{
+		Id: uuid.NewV4().String(),
+		MethodsImg: []string{
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+		},
+		CoursesImg: []string{
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+		},
+	}
+	ContactBody := Client.Database("DiveEvolution").Collection("CoursesImg")
+	ContactBody.InsertOne(context.TODO(),data)
 }
