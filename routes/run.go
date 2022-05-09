@@ -51,7 +51,7 @@ func Home (w http.ResponseWriter, r *http.Request){
 	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n" +
 		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n" +
 		"/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg\n"+
-		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg/es\n"))
+		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n"))
 }
 func writeHeader(w http.ResponseWriter, r *http.Request){
 	data := models.HeaderImg{
