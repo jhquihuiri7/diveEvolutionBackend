@@ -62,6 +62,16 @@ func GetLang(lang, routeName string)string{
 		}else {
 			return "ab0c5aa3-a761-4e19-a452-79bc02b4ccf3"
 		}
+	}else if routeName == "tours"{
+		if lang == "es"{
+			return "ffdbd06c-91b8-4e36-b3c8-26dff1aa39f6"
+		}else if lang == "en"{
+			return "501b3474-f7fb-4b7f-b110-309082d7a5f2"
+		}else if lang == "fr"{
+			return "2b702a78-e175-435a-9a49-a0a7f7d406d7"
+		}else {
+			return "ffdbd06c-91b8-4e36-b3c8-26dff1aa39f6"
+		}
 	}else {
 		return ""
 	}

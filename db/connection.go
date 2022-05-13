@@ -3,6 +3,7 @@ package db
 import (
 	"context"
 	"diveEvolution/models"
+	"fmt"
 	uuid "github.com/satori/go.uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -37,6 +38,29 @@ func GetDocument(collection *mongo.Collection,id string)  bson.M{
 		}
 	}
 	return result
+}
+func GetDocumentDest(collection *mongo.Collection,id string, destination string)  models.TourType{
+	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}})
+	if err != nil {
+		log.Fatal(err)
+	}
+	var result models.Tours
+	for cur.Next(context.TODO()) {
+		err := cur.Decode(&result)
+		if err != nil {
+			fmt.Println("ERROR AL DECODIFICAR")
+			log.Fatal(err)
+		}
+	}
+	if destination == "sc" {
+		return result.Sc
+	}else if destination == "sx" {
+		return result.Sx
+	}else if destination == "ib" {
+		return result.Ib
+	}else {
+		return result.Sc
+	}
 }
 func UpdateDocumment(collections []*mongo.Collection){
 	navBar := models.NavBar{

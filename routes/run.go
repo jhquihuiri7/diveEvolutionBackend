@@ -23,11 +23,13 @@ func RunApp(){
 	router.HandleFunc("/api/getAbout/{lang}", AboutHandler).Methods("GET")
 	router.HandleFunc("/api/getCourses/{lang}", CoursesHandler).Methods("GET")
 	router.HandleFunc("/api/getContact/{lang}", ContactHandler).Methods("GET")
+	router.HandleFunc("/api/getTours/{lang}/{destination}", ToursHandler).Methods("GET")
 	router.HandleFunc("/api/getFooter/{lang}", FooterHandler).Methods("GET")
 	router.HandleFunc("/api/getIndexImg", IndexImgHandler).Methods("GET")
 	router.HandleFunc("/api/getAboutImg", AboutImgHandler).Methods("GET")
 	router.HandleFunc("/api/getCoursesImg", CoursesImgHandler).Methods("GET")
 	router.HandleFunc("/api/getContactImg", ContactImgHandler).Methods("GET")
+	router.HandleFunc("/api/getToursImg", ToursImgHandler).Methods("GET")
 	router.HandleFunc("/api/getHeaderImg", HeaderImgHandler).Methods("GET")
 	router.HandleFunc("/api/getFooterImg", FooterImgHandler).Methods("GET")
 
@@ -38,9 +40,11 @@ func RunApp(){
 	router.HandleFunc("/api/updateContactBody", writeContactBody).Methods("GET")
 	router.HandleFunc("/api/updateNosotros", writeNosotrosBody).Methods("GET")
 	router.HandleFunc("/api/updateCourses", writeCoursesBody).Methods("GET")
+	router.HandleFunc("/api/updateTours", writeToursBody).Methods("GET")
 	router.HandleFunc("/api/updateContactImg", writeContactImg).Methods("GET")
 	router.HandleFunc("/api/updateNosotrosImg", writeAboutImg).Methods("GET")
 	router.HandleFunc("/api/updateCoursesImg", writeCoursesImg).Methods("GET")
+	router.HandleFunc("/api/updateToursImg", writeToursImg).Methods("GET")
 
 	methods := handlers.AllowedMethods([]string{"GET", "POST"})
 	origin := handlers.AllowedOrigins([]string{"*"})
@@ -49,9 +53,9 @@ func RunApp(){
 }
 func Home (w http.ResponseWriter, r *http.Request){
 	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n" +
-		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n" +
+		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n/api/getTours/fr/sc\n\n\n" +
 		"/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg\n"+
-		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n"))
+		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n/api/getToursImg\n"))
 }
 func writeHeader(w http.ResponseWriter, r *http.Request){
 	data := models.HeaderImg{
@@ -267,4 +271,313 @@ func writeCoursesImg(w http.ResponseWriter, r *http.Request){
 	}
 	ContactBody := Client.Database("DiveEvolution").Collection("CoursesImg")
 	ContactBody.InsertOne(context.TODO(),data)
+}
+func writeToursBody(w http.ResponseWriter, r *http.Request){
+	data := models.Tours{
+		Id: uuid.NewV4().String(),
+		Sc: models.TourType{
+			Snorkel: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "Open Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+			Dive: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+			Land: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+		},
+		Sx: models.TourType{
+			Snorkel: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+			Dive: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+			Land: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+		},
+		Ib: models.TourType{
+			Snorkel: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+			Dive: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+			Land: []models.Course{
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FROpen Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRIntermedium",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRAdvanced",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				models.Course{
+					Ref: uuid.NewV4().String(),
+					Title: "FRDive Master",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+			},
+		},
+	}
+
+	ToursBody := Client.Database("DiveEvolution").Collection("Tours")
+	ToursBody.InsertOne(context.TODO(),data)
+}
+func writeToursImg(w http.ResponseWriter, r *http.Request){
+	data := models.ToursImg{
+		Id: uuid.NewV4().String(),
+		SnorkelImg: []string{
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+		},
+		DiveImg: []string{
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+		},
+		LandImg: []string{
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1652031292/DiveEvolution/About/sea-g3cb441ce3_1920_i0pxzq.jpg",
+		},
+	}
+	ToursImg := Client.Database("DiveEvolution").Collection("ToursImg")
+	ToursImg.InsertOne(context.TODO(),data)
 }
