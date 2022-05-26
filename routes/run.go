@@ -25,6 +25,7 @@ func RunApp(){
 	router.HandleFunc("/api/getContact/{lang}", ContactHandler).Methods("GET")
 	router.HandleFunc("/api/getTours/{lang}/{destination}", ToursHandler).Methods("GET")
 	router.HandleFunc("/api/getFooter/{lang}", FooterHandler).Methods("GET")
+	router.HandleFunc("/api/getCourseInfo/{lang}/{ref}", CoursesInfoHandler).Methods("GET")
 	router.HandleFunc("/api/getIndexImg", IndexImgHandler).Methods("GET")
 	router.HandleFunc("/api/getAboutImg", AboutImgHandler).Methods("GET")
 	router.HandleFunc("/api/getCoursesImg", CoursesImgHandler).Methods("GET")
@@ -32,6 +33,7 @@ func RunApp(){
 	router.HandleFunc("/api/getToursImg", ToursImgHandler).Methods("GET")
 	router.HandleFunc("/api/getHeaderImg", HeaderImgHandler).Methods("GET")
 	router.HandleFunc("/api/getFooterImg", FooterImgHandler).Methods("GET")
+
 
 	router.HandleFunc("/api/updateIndex", UpdateIndexHandler).Methods("GET")
 	router.HandleFunc("/api/updateHeader", writeHeader).Methods("GET")
@@ -45,6 +47,7 @@ func RunApp(){
 	router.HandleFunc("/api/updateNosotrosImg", writeAboutImg).Methods("GET")
 	router.HandleFunc("/api/updateCoursesImg", writeCoursesImg).Methods("GET")
 	router.HandleFunc("/api/updateToursImg", writeToursImg).Methods("GET")
+	router.HandleFunc("/api/updateCourseInfo", writeCourseInfoBody).Methods("GET")
 
 	methods := handlers.AllowedMethods([]string{"GET", "POST"})
 	origin := handlers.AllowedOrigins([]string{"*"})
@@ -53,7 +56,8 @@ func RunApp(){
 }
 func Home (w http.ResponseWriter, r *http.Request){
 	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n" +
-		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n/api/getTours/fr/sc\n\n\n" +
+		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n/api/getTours/fr/sc\n" +
+		"/api/getCourseInfo/{lang}/{ref}\n\n\n"+
 		"/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg\n"+
 		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n/api/getToursImg\n"))
 }
@@ -580,4 +584,22 @@ func writeToursImg(w http.ResponseWriter, r *http.Request){
 	}
 	ToursImg := Client.Database("DiveEvolution").Collection("ToursImg")
 	ToursImg.InsertOne(context.TODO(),data)
+}
+func writeCourseInfoBody(w http.ResponseWriter, r *http.Request){
+	data := models.CourseInfo{
+		Id: uuid.NewV4().String(),
+		Ref: "",
+		Lang: "es",
+		Course: models.Course{
+			Ref: uuid.NewV4().String(),
+			Title: "Open Water",
+			Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+			Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+			Price: 250,
+		},
+		LargeDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+		Itinerary: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+	}
+	ContactBody := Client.Database("DiveEvolution").Collection("CoursesInfo")
+	ContactBody.InsertOne(context.TODO(),data)
 }

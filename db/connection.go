@@ -62,6 +62,21 @@ func GetDocumentDest(collection *mongo.Collection,id string, destination string)
 		return result.Sc
 	}
 }
+func GetDocumentCourse(collection *mongo.Collection,lang string, ref string)  models.CourseInfo{
+	cur, err := collection.Find(context.TODO(), bson.D{{"ref", ref},{"lang", lang}})
+	if err != nil {
+		log.Fatal(err)
+	}
+	var result models.CourseInfo
+	for cur.Next(context.TODO()) {
+		err := cur.Decode(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+	fmt.Println(result)
+	return result
+}
 func UpdateDocumment(collections []*mongo.Collection){
 	navBar := models.NavBar{
 		NavBarItems: [] models.NavBarItem {
