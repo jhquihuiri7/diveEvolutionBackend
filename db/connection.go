@@ -26,7 +26,8 @@ func ConnectDB () *mongo.Client{
 	return client
 }
 func GetDocument(collection *mongo.Collection,id string)  bson.M{
-	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}})
+	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
+	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}},opts)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,7 +41,8 @@ func GetDocument(collection *mongo.Collection,id string)  bson.M{
 	return result
 }
 func GetDocumentDest(collection *mongo.Collection,id string, destination string)  models.TourType{
-	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}})
+	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
+	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}},opts)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -63,7 +65,8 @@ func GetDocumentDest(collection *mongo.Collection,id string, destination string)
 	}
 }
 func GetDocumentCourse(collection *mongo.Collection,lang string, ref string)  models.CourseInfo{
-	cur, err := collection.Find(context.TODO(), bson.D{{"ref", ref},{"lang", lang}})
+	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
+	cur, err := collection.Find(context.TODO(), bson.D{{"ref", ref},{"lang", lang}},opts)
 	if err != nil {
 		log.Fatal(err)
 	}
