@@ -4,6 +4,7 @@ import (
 	"context"
 	"diveEvolution/db"
 	"diveEvolution/models"
+	"fmt"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	uuid "github.com/satori/go.uuid"
@@ -26,6 +27,7 @@ func RunApp(){
 	router.HandleFunc("/api/getTours/{lang}/{destination}", ToursHandler).Methods("GET")
 	router.HandleFunc("/api/getFooter/{lang}", FooterHandler).Methods("GET")
 	router.HandleFunc("/api/getCourseInfo/{lang}/{ref}", CoursesInfoHandler).Methods("GET")
+	router.HandleFunc("/api/getToursInfo/{lang}/{ref}", ToursInfoHandler).Methods("GET")
 	router.HandleFunc("/api/getIndexImg", IndexImgHandler).Methods("GET")
 	router.HandleFunc("/api/getAboutImg", AboutImgHandler).Methods("GET")
 	router.HandleFunc("/api/getCoursesImg", CoursesImgHandler).Methods("GET")
@@ -33,6 +35,7 @@ func RunApp(){
 	router.HandleFunc("/api/getToursImg", ToursImgHandler).Methods("GET")
 	router.HandleFunc("/api/getHeaderImg", HeaderImgHandler).Methods("GET")
 	router.HandleFunc("/api/getFooterImg", FooterImgHandler).Methods("GET")
+	router.HandleFunc("/api/getCourseInfoImg/{ref}", CoursesInfoImgHandler).Methods("GET")
 
 
 	router.HandleFunc("/api/updateIndex", UpdateIndexHandler).Methods("GET")
@@ -48,6 +51,8 @@ func RunApp(){
 	router.HandleFunc("/api/updateCoursesImg", writeCoursesImg).Methods("GET")
 	router.HandleFunc("/api/updateToursImg", writeToursImg).Methods("GET")
 	router.HandleFunc("/api/updateCourseInfo", writeCourseInfoBody).Methods("GET")
+	router.HandleFunc("/api/updateCourseInfoImg", writeCourseInfoImg).Methods("GET")
+	router.HandleFunc("/api/updateTourInfoBody", writeTourInfoBody).Methods("GET")
 
 	methods := handlers.AllowedMethods([]string{"GET", "POST"})
 	origin := handlers.AllowedOrigins([]string{"*"})
@@ -57,9 +62,10 @@ func RunApp(){
 func Home (w http.ResponseWriter, r *http.Request){
 	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n" +
 		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n/api/getTours/fr/sc\n" +
-		"/api/getCourseInfo/{lang}/{ref}\n\n\n"+
+		"/api/getCourseInfo/{lang}/{ref}\n/api/getToursInfo/{lang}/{ref}\n\n\n"+
 		"/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg\n"+
-		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n/api/getToursImg\n"))
+		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n/api/getToursImg\n"+
+		"/api/getCourseInfoImg/{ref}"))
 }
 func writeHeader(w http.ResponseWriter, r *http.Request){
 	data := models.HeaderImg{
@@ -602,4 +608,79 @@ func writeCourseInfoBody(w http.ResponseWriter, r *http.Request){
 	}
 	ContactBody := Client.Database("DiveEvolution").Collection("CoursesInfo")
 	ContactBody.InsertOne(context.TODO(),data)
+}
+func writeCourseInfoImg(w http.ResponseWriter, r *http.Request){
+	data := models.CourseInfoImg{
+		Id: "861da9db-74ee-4ba9-9978-585e3fb5e1c2",
+		Img: []string{
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1653764788/DiveEvolution/CourseDetail/curso2_okynik.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1653764783/DiveEvolution/CourseDetail/courso1_xawoph.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1653764793/DiveEvolution/CourseDetail/curso4_sezzea.jpg",
+			"https://res.cloudinary.com/logicielapplab/image/upload/v1653764793/DiveEvolution/CourseDetail/curso3_nm8wsz.jpg",
+		},
+	}
+	ContactBody := Client.Database("DiveEvolution").Collection("CoursesInfoImg")
+	ContactBody.InsertOne(context.TODO(),data)
+}
+func writeTourInfoBody(w http.ResponseWriter, r *http.Request){
+	languages := []string{"es","en","fr"}
+	references := []string{
+		"4f1600d3-2489-4ecf-be4e-928c779f2ed3",
+		"e835b382-78ec-4da7-9964-c0f5cfc6ca10",
+		"e6fe1f48-529d-488f-a2fc-f18b5ce2ed5f",
+		"1c151a78-a044-433f-8554-53acb9ad115b",
+		"b9cc6767-fa65-4785-80a8-8c36a8fafbc8",
+		"e7222bd0-9c0a-4303-8e93-d01bd687f69b",
+		"40c46eb4-2288-4ee5-8890-19e3d94f1522",
+		"cf80e1f7-64ec-4343-b98f-5658853915a8",
+		"215352f7-d636-48e4-a67d-08b9ce297fe0",
+		"9ff5fd3f-c75d-40ed-a2a7-6e2c7b3fdc7c",
+		"7c009c2e-4e62-4058-b681-04edec6e7115",
+		"519727bc-b15d-45a0-838f-f1cc92878abb",
+		"5e61e82a-566e-48ce-a0ee-79e12c5ff7c1",
+		"dd7aba04-343c-4efd-9bf8-5cc2623e3c16",
+		"b3cc13c0-9d4d-4302-999a-ffc9724b99d8",
+		"fb44d347-1868-4aaf-81b5-6ff3b8329c52",
+		"ecdd249d-b609-4c21-b647-ba2ac37f5761",
+		"4cb150c4-f131-4058-a0df-cbc70092982f",
+		"eecc8aea-fb69-4f86-bd35-22bdd16ab2bc",
+		"9d0fb57f-4caf-4c3c-9550-5c626bf8d9ea",
+		"9f933f0b-acb3-4175-8c27-3744bc612ac1",
+		"a6d73e10-cc2a-4fd3-afd1-50199fdc765c",
+		"ac2c7f19-8f69-4e0a-890b-d90deab2dcc8",
+		"a1f01a72-9d97-476f-8e1a-c8131e249d44",
+		"551cbf9e-cbcf-49f7-848e-20ce39bbe562",
+		"00661474-fd6b-4db7-92b6-7386b32c41ee",
+		"2997b199-cbfd-4328-831d-3538fac49481",
+		"f0f60f2b-a987-4e17-8b32-81429cb9f5e5",
+		"0881c5c7-00a7-4125-b7f1-406932f2042f",
+		"9d340f1d-8ba2-4f33-8b11-8287338d65f8",
+		"6ff7ecec-9934-44f1-b621-0e16dc4e9328",
+		"565c167b-521f-4411-ace6-aa7ef9574c2b",
+		"ea831292-9cdf-49ba-aec7-9d97ce9fe271",
+		"67cdb1c9-a327-415f-825f-cd5c3ac22525",
+		"7cd2e9c2-35d6-4b7b-94ea-08fe04793702",
+		"cabd8226-132e-4f18-a9b0-a225ec979bc7",
+	}
+	ContactBody := Client.Database("DiveEvolution").Collection("ToursInfo")
+	for i,ref := range references {
+		fmt.Println(i)
+		for _, lang := range languages {
+			data := models.CourseInfo{
+				Id: uuid.NewV4().String(),
+				Ref: ref,
+				Lang: lang,
+				Course: models.Course{
+					Title: "Open Water",
+					Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+					Included: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+					Price: 250,
+				},
+				LargeDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+				Itinerary: []string{"Hola","Mundo","Logiciel","Applab","Saludos"},
+			}
+			ContactBody.InsertOne(context.TODO(),data)
+		}
+	}
+
 }

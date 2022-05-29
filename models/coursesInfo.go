@@ -8,3 +8,7 @@ type CourseInfo struct {
 	LargeDescription string `bson:"largeDescription"`
 	Itinerary []string `bson:"itinerary"`
 }
+type CourseInfoImg struct {
+	Id string `bson:"_id"`
+	Img []string `bson:"img"`
+}
