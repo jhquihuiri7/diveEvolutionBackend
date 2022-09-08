@@ -1,22 +1,25 @@
 package utils
 
 import (
+	"bytes"
 	"fmt"
 	"net/smtp"
+	"text/template"
 )
 
 type MailRequest struct {
-	Firstname string `json:"firstname"`
-	Lastname string `json:"lastname"`
-	Subject string `json:"subject"`
-	Phone string `json:"phone"`
-	Email string `json:"email"`
-	Message string `json:"message"`
+	Name     string `json:"name"`
+	Subject  string `json:"subject"`
+	Phone    string `json:"phone"`
+	Email    string `json:"email"`
+	Message  string `json:"message"`
+	Response string `json:"response"`
 }
-func SendMail(data MailRequest) string {
+
+func (r *MailRequest) SendMail() string {
 	// sender data
 	from := "jhonatan.quihuiri@gmail.com" //ex: "John.Doe@gmail.com"
-	password := "dfouvrynuvwkydpi"           // ex: "ieiemcjdkejspqz"
+	password := "dfouvrynuvwkydpi"        // ex: "ieiemcjdkejspqz"
 	// receiver address
 	toEmail := "jhonatan.quihuiri@gmail.com" // ex: "Jane.Smith@yahoo.com"
 	to := []string{toEmail}
@@ -24,48 +27,54 @@ func SendMail(data MailRequest) string {
 	host := "smtp.gmail.com"
 	port := "587"
 	address := host + ":" + port
-	// message
-	data.Subject = "CONSULTA INFORMACION CLIENTE\r\n"
-	message := []byte("Subject:" + data.Subject + "\r\n" +
-		"Cliente: " + data.Firstname + " " + data.Lastname + "\r\n" +
-		"Mail: " + data.Email + "\r\n" +
-		"Celular: " + data.Phone + "\r\n" +
-		"Mensaje: " + data.Message + "\r\n")
-	// athentication data
-	// func PlainAuth(identity, username, password, host string) Auth
+	subject := "Subject: NUEVA CONSULTA CLIENTE\n"
+	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
+	body := r.Message
+	message := []byte(subject + mime + body)
 	auth := smtp.PlainAuth("", from, password, host)
-	// send mail
-	// func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("err:", err)
 		return "no"
 	}
-	AutomaticResponse(data.Email)
+	r.AutomaticResponse()
 	return "ok"
 }
-func AutomaticResponse(toEmail string)  {
+func (r *MailRequest) AutomaticResponse() {
 	// sender data
 	from := "jhonatan.quihuiri@gmail.com" //ex: "John.Doe@gmail.com"
-	password := "dfouvrynuvwkydpi"           // ex: "ieiemcjdkejspqz"
+	password := "dfouvrynuvwkydpi"        // ex: "ieiemcjdkejspqz"
 	// receiver address
-	to := []string{toEmail}
+	to := []string{r.Email}
 	// smtp - Simple Mail Transfer Protocol
 	host := "smtp.gmail.com"
 	port := "587"
 	address := host + ":" + port
 	// message
-	subject := "DIVE EVOLUTION CONTACTO\n"
-	body := "Hemos recibido su mensaje, nos prondremos en contacto pronto"
-	message := []byte(subject + body)
-	// athentication data
-	// func PlainAuth(identity, username, password, host string) Auth
+	subject := "Subject: ¡Hemos recibido tu mensaje!\n"
+	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
+	body := r.Response
+	message := []byte(subject + mime + body)
 	auth := smtp.PlainAuth("", from, password, host)
-	// send mail
-	// func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
 	err := smtp.SendMail(address, auth, from, to, message)
+
 	if err != nil {
 		fmt.Println("err:", err)
 		return
 	}
+}
+func (r *MailRequest) ParseTemplate() error {
+	t := template.Must(template.ParseGlob("templates/*.gohtml"))
+	bufRequest := new(bytes.Buffer)
+	bufResponse := new(bytes.Buffer)
+	if err := t.ExecuteTemplate(bufRequest, "requestMail.gohtml", r); err != nil {
+		return err
+	}
+	if err := t.ExecuteTemplate(bufResponse, "responseMail.gohtml", nil); err != nil {
+		return err
+	}
+	r.Message = bufRequest.String()
+	r.Response = bufResponse.String()
+
+	return nil
 }

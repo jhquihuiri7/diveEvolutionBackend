@@ -11,8 +11,7 @@ import (
 	"log"
 )
 
-
-func ConnectDB () *mongo.Client{
+func ConnectDB() *mongo.Client {
 	opt := options.Client().ApplyURI("mongodb+srv://doadmin:Z3d87ni4E91g05aX@logiciel-applab-dab57134.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=logiciel-applab&tls=true&tlsCAFile=db/ca-certificate.crt")
 	client, err := mongo.Connect(context.TODO(), opt)
 	if err != nil {
@@ -25,9 +24,9 @@ func ConnectDB () *mongo.Client{
 	}
 	return client
 }
-func GetDocument(collection *mongo.Collection,id string)  bson.M{
+func GetDocument(collection *mongo.Collection, id string) bson.M {
 	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
-	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}},opts)
+	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}}, opts)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,9 +39,9 @@ func GetDocument(collection *mongo.Collection,id string)  bson.M{
 	}
 	return result
 }
-func GetDocumentDest(collection *mongo.Collection,id string, destination string)  models.TourType{
+func GetDocumentDest(collection *mongo.Collection, id string, destination string) models.TourType {
 	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
-	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}},opts)
+	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}}, opts)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -56,17 +55,17 @@ func GetDocumentDest(collection *mongo.Collection,id string, destination string)
 	}
 	if destination == "sc" {
 		return result.Sc
-	}else if destination == "sx" {
+	} else if destination == "sx" {
 		return result.Sx
-	}else if destination == "ib" {
+	} else if destination == "ib" {
 		return result.Ib
-	}else {
+	} else {
 		return result.Sc
 	}
 }
-func GetDocumentCourse(collection *mongo.Collection,lang string, ref string)  models.CourseInfo{
+func GetDocumentCourse(collection *mongo.Collection, lang string, ref string) models.CourseInfo {
 	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
-	cur, err := collection.Find(context.TODO(), bson.D{{"ref", ref},{"lang", lang}},opts)
+	cur, err := collection.Find(context.TODO(), bson.D{{"ref", ref}, {"lang", lang}}, opts)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -80,15 +79,15 @@ func GetDocumentCourse(collection *mongo.Collection,lang string, ref string)  mo
 	fmt.Println(result)
 	return result
 }
-func UpdateDocumment(collections []*mongo.Collection){
+func UpdateDocumment(collections []*mongo.Collection) {
 	navBar := models.NavBar{
-		NavBarItems: [] models.NavBarItem {
+		NavBarItems: []models.NavBarItem{
 			models.NavBarItem{
-				Title: "Inicio",
+				Title:     "Inicio",
 				Accordion: []string{},
 			},
 			models.NavBarItem{
-				Title: "Nosotros",
+				Title:     "Nosotros",
 				Accordion: []string{},
 			},
 			models.NavBarItem{
@@ -100,11 +99,11 @@ func UpdateDocumment(collections []*mongo.Collection){
 				},
 			},
 			models.NavBarItem{
-				Title: "Cursos de Buceo",
+				Title:     "Cursos de Buceo",
 				Accordion: []string{},
 			},
 			models.NavBarItem{
-				Title: "Contacto",
+				Title:     "Contacto",
 				Accordion: []string{},
 			},
 		},
@@ -116,38 +115,38 @@ func UpdateDocumment(collections []*mongo.Collection){
 	//	Button: "Lorem Ipsum",
 	//}
 	footer := models.Footer{
-		Id: uuid.NewV4().String(),
+		Id:     uuid.NewV4().String(),
 		NavBar: navBar,
-		Phone: "+593982291894",
+		Phone:  "+593982291894",
 		SocialMedia: models.SocialMedia{
-			Facebook: "https://www.facebook.com/Logiciel-AppLab-115115559920070",
+			Facebook:  "https://www.facebook.com/Logiciel-AppLab-115115559920070",
 			Instagram: "https://www.instagram.com/logicielapplab/",
-			Twitter: "",
+			Twitter:   "",
 		},
 	}
 	data := models.Index{
 		Id: uuid.NewV4().String(),
 		Body: models.Body{
 			Section1: models.Section1{
-				Calidad: []string{"Lorem Ipsum","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-				Precio: []string{"Lorem Ipsum","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+				Calidad: []string{"Lorem Ipsum", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+				Precio:  []string{"Lorem Ipsum", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
 			},
 			Section2: models.Section2{
 				Items: []models.ItemsInfo{
 					models.ItemsInfo{
-						Title: "Lorem Ipsum",
+						Title:       "Lorem Ipsum",
 						Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-						Button: "Lorem Ipsum",
+						Button:      "Lorem Ipsum",
 					},
 					models.ItemsInfo{
-						Title: "Lorem Ipsum",
+						Title:       "Lorem Ipsum",
 						Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-						Button: "Lorem Ipsum",
+						Button:      "Lorem Ipsum",
 					},
 					models.ItemsInfo{
-						Title: "Lorem Ipsum",
+						Title:       "Lorem Ipsum",
 						Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-						Button: "Lorem Ipsum",
+						Button:      "Lorem Ipsum",
 					},
 				},
 			},
