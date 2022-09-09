@@ -5,57 +5,78 @@ import (
 	"diveEvolution/models"
 	"diveEvolution/utils"
 	"fmt"
-	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	uuid "github.com/satori/go.uuid"
 	"net/http"
 	"os"
 )
 var router *mux.Router
+// CORS Middleware
+func CORS(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+		// Set headers
+		w.Header().Set("Access-Control-Allow-Headers:", "*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "*")
+
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
+		fmt.Println("ok")
+
+		// Next
+		next.ServeHTTP(w, r)
+		return
+	})
+}
 func RunApp() {
 	router = mux.NewRouter()
-	router.HandleFunc("/", Home).Methods("GET")
-	router.HandleFunc("/api/getIndex/{lang}", IndexHandler).Methods("GET")
-	router.HandleFunc("/api/getAbout/{lang}", AboutHandler).Methods("GET")
-	router.HandleFunc("/api/getCourses/{lang}", CoursesHandler).Methods("GET")
-	router.HandleFunc("/api/getContact/{lang}", ContactHandler).Methods("GET")
-	router.HandleFunc("/api/getTours/{lang}/{destination}", ToursHandler).Methods("GET")
-	router.HandleFunc("/api/getFooter/{lang}", FooterHandler).Methods("GET")
-	router.HandleFunc("/api/getCourseInfo/{lang}/{ref}", CoursesInfoHandler).Methods("GET")
-	router.HandleFunc("/api/getToursInfo/{lang}/{ref}", ToursInfoHandler).Methods("GET")
-	router.HandleFunc("/api/getIndexImg", IndexImgHandler).Methods("GET")
-	router.HandleFunc("/api/getAboutImg", AboutImgHandler).Methods("GET")
-	router.HandleFunc("/api/getCoursesImg", CoursesImgHandler).Methods("GET")
-	router.HandleFunc("/api/getContactImg", ContactImgHandler).Methods("GET")
-	router.HandleFunc("/api/getToursImg", ToursImgHandler).Methods("GET")
-	router.HandleFunc("/api/getHeaderImg", HeaderImgHandler).Methods("GET")
-	router.HandleFunc("/api/getFooterImg", FooterImgHandler).Methods("GET")
-	router.HandleFunc("/api/getCourseInfoImg/{ref}", CoursesInfoImgHandler).Methods("GET")
+	router.Use(CORS)
+	router.HandleFunc("/", Home)
+	router.HandleFunc("/api/getIndex/{lang}", IndexHandler)
+	router.HandleFunc("/api/getAbout/{lang}", AboutHandler)
+	router.HandleFunc("/api/getCourses/{lang}", CoursesHandler)
+	router.HandleFunc("/api/getContact/{lang}", ContactHandler)
+	router.HandleFunc("/api/getTours/{lang}/{destination}", ToursHandler)
+	router.HandleFunc("/api/getFooter/{lang}", FooterHandler)
+	router.HandleFunc("/api/getCourseInfo/{lang}/{ref}", CoursesInfoHandler)
+	router.HandleFunc("/api/getToursInfo/{lang}/{ref}", ToursInfoHandler)
+	router.HandleFunc("/api/getIndexImg", IndexImgHandler)
+	router.HandleFunc("/api/getAboutImg", AboutImgHandler)
+	router.HandleFunc("/api/getCoursesImg", CoursesImgHandler)
+	router.HandleFunc("/api/getContactImg", ContactImgHandler)
+	router.HandleFunc("/api/getToursImg", ToursImgHandler)
+	router.HandleFunc("/api/getHeaderImg", HeaderImgHandler)
+	router.HandleFunc("/api/getFooterImg", FooterImgHandler)
+	router.HandleFunc("/api/getCourseInfoImg/{ref}", CoursesInfoImgHandler)
 
-	router.HandleFunc("/api/sendMail", MailSender).Methods("POST","OPTIONS")
+	router.HandleFunc("/api/sendMail", MailSender)
 
-	router.HandleFunc("/api/updateIndex", UpdateIndexHandler).Methods("GET")
-	router.HandleFunc("/api/updateHeader", writeHeader).Methods("GET")
-	router.HandleFunc("/api/updateFooter", writeFooter).Methods("GET")
-	router.HandleFunc("/api/updateIndexBody", writeIndexBody).Methods("GET")
-	router.HandleFunc("/api/updateContactBody", writeContactBody).Methods("GET")
-	router.HandleFunc("/api/updateNosotros", writeNosotrosBody).Methods("GET")
-	router.HandleFunc("/api/updateCourses", writeCoursesBody).Methods("GET")
-	router.HandleFunc("/api/updateTours", writeToursBody).Methods("GET")
-	router.HandleFunc("/api/updateContactImg", writeContactImg).Methods("GET")
-	router.HandleFunc("/api/updateNosotrosImg", writeAboutImg).Methods("GET")
-	router.HandleFunc("/api/updateCoursesImg", writeCoursesImg).Methods("GET")
-	router.HandleFunc("/api/updateToursImg", writeToursImg).Methods("GET")
-	router.HandleFunc("/api/updateCourseInfo", writeCourseInfoBody).Methods("GET")
-	router.HandleFunc("/api/updateCourseInfoImg", writeCourseInfoImg).Methods("GET")
-	router.HandleFunc("/api/updateTourInfoBody", writeTourInfoBody).Methods("GET")
+	router.HandleFunc("/api/updateIndex", UpdateIndexHandler)
+	router.HandleFunc("/api/updateHeader", writeHeader)
+	router.HandleFunc("/api/updateFooter", writeFooter)
+	router.HandleFunc("/api/updateIndexBody", writeIndexBody)
+	router.HandleFunc("/api/updateContactBody", writeContactBody)
+	router.HandleFunc("/api/updateNosotros", writeNosotrosBody)
+	router.HandleFunc("/api/updateCourses", writeCoursesBody)
+	router.HandleFunc("/api/updateTours", writeToursBody)
+	router.HandleFunc("/api/updateContactImg", writeContactImg)
+	router.HandleFunc("/api/updateNosotrosImg", writeAboutImg)
+	router.HandleFunc("/api/updateCoursesImg", writeCoursesImg)
+	router.HandleFunc("/api/updateToursImg", writeToursImg)
+	router.HandleFunc("/api/updateCourseInfo", writeCourseInfoBody)
+	router.HandleFunc("/api/updateCourseInfoImg", writeCourseInfoImg)
+	router.HandleFunc("/api/updateTourInfoBody", writeTourInfoBody)
 
-	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
-	origin := handlers.AllowedOrigins([]string{"*","https://www.diveevolutiongps.com/"})
-	headers := handlers.AllowedHeaders([]string{"Accept", "Accept-Language", "Content-Type", "Content-Language", "Origin"})
-	credentials := handlers.AllowCredentials()
+	//methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
+	//origin := handlers.AllowedOrigins([]string{"*","https://www.diveevolutiongps.com/"})
+	//headers := handlers.AllowedHeaders([]string{"Accept", "Accept-Language", "Content-Type", "Content-Language", "Origin"})
+	//credentials := handlers.AllowCredentials()
 	port := os.Getenv("PORT")
-	http.ListenAndServe(":"+port, handlers.CORS(methods, origin,headers, credentials)(router))
+	http.ListenAndServe(":"+port, router)
 }
 func Home(w http.ResponseWriter, r *http.Request) {
 	router.Walk(func(route *mux.Route, router *mux.Router, ancestors []*mux.Route) error {
