@@ -10,7 +10,7 @@ import (
 )
 
 func MailSender(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Access-Control-Allow-Headers:", "*")
+	w.Header().Add("Access-Control-Allow-Headers", "*")
 	w.Header().Add("Access-Control-Allow-Origin", "*")
 	w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	//, Authorization, Content-Type, Content-Length, Accept-Encoding
