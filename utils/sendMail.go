@@ -16,7 +16,9 @@ type MailRequest struct {
 	Response string `json:"response"`
 }
 
-func (r *MailRequest) SendMail() string {
+func (r *MailRequest) SendMail() MailStruct {
+	//response
+	response := MailStruct{}
 	// sender data
 	from := "jhonatan.quihuiri@gmail.com" //ex: "John.Doe@gmail.com"
 	password := "dfouvrynuvwkydpi"        // ex: "ieiemcjdkejspqz"
@@ -30,17 +32,21 @@ func (r *MailRequest) SendMail() string {
 	subject := "Subject: NUEVA CONSULTA CLIENTE\n"
 	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
 	body := r.Message
-	message := []byte(subject + mime + body)
+	message := []byte(fmt.Sprintf("From: Dive Evolution <%s>\n", from) + subject + mime + body)
 	auth := smtp.PlainAuth("", from, password, host)
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("err:", err)
-		return "no"
+		response.Error = "send message error"
+	}else {
+		autoResponse := r.AutomaticResponse()
+		if autoResponse != "" {
+			response.Error = "automatic response error"
+		}
 	}
-	r.AutomaticResponse()
-	return "ok"
+	return response
 }
-func (r *MailRequest) AutomaticResponse() {
+func (r *MailRequest) AutomaticResponse() string{
 	// sender data
 	from := "jhonatan.quihuiri@gmail.com" //ex: "John.Doe@gmail.com"
 	password := "dfouvrynuvwkydpi"        // ex: "ieiemcjdkejspqz"
@@ -54,13 +60,14 @@ func (r *MailRequest) AutomaticResponse() {
 	subject := "Subject: ¡Hemos recibido tu mensaje!\n"
 	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
 	body := r.Response
-	message := []byte(subject + mime + body)
+	message := []byte(fmt.Sprintf("From: Dive Evolution <%s>\n", from) + subject + mime + body)
 	auth := smtp.PlainAuth("", from, password, host)
 	err := smtp.SendMail(address, auth, from, to, message)
 
 	if err != nil {
-		fmt.Println("err:", err)
-		return
+		return err.Error()
+	}else {
+		return ""
 	}
 }
 func (r *MailRequest) ParseTemplate() error {

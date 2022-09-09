@@ -23,5 +23,9 @@ func MailSender(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 	}
 	response := data.SendMail()
-	fmt.Fprintln(w, response)
+	JSONresponse, err := json.Marshal(response)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Fprintln(w, string(JSONresponse))
 }
