@@ -11,9 +11,9 @@ import (
 	"net/http"
 	"os"
 )
-
+var router *mux.Router
 func RunApp() {
-	router := mux.NewRouter()
+	router = mux.NewRouter()
 	router.HandleFunc("/", Home).Methods("GET")
 	router.HandleFunc("/api/getIndex/{lang}", IndexHandler).Methods("GET")
 	router.HandleFunc("/api/getAbout/{lang}", AboutHandler).Methods("GET")
@@ -32,7 +32,7 @@ func RunApp() {
 	router.HandleFunc("/api/getFooterImg", FooterImgHandler).Methods("GET")
 	router.HandleFunc("/api/getCourseInfoImg/{ref}", CoursesInfoImgHandler).Methods("GET")
 
-	router.HandleFunc("/api/sendMail", MailSender).Methods("POST")
+	router.HandleFunc("/api/sendMail", MailSender).Methods("POST","OPTIONS")
 
 	router.HandleFunc("/api/updateIndex", UpdateIndexHandler).Methods("GET")
 	router.HandleFunc("/api/updateHeader", writeHeader).Methods("GET")
@@ -58,12 +58,12 @@ func RunApp() {
 	http.ListenAndServe(":"+port, handlers.CORS(methods, origin,headers, credentials)(router))
 }
 func Home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("/api/getIndex/es\n/api/getHeader/es\n/api/getFooter/es\n" +
-		"/api/getAbout/es\n/api/getCourses/es\n/api/getContact/es\n/api/getTours/fr/sc\n" +
-		"/api/getCourseInfo/{lang}/{ref}\n/api/getToursInfo/{lang}/{ref}\n\n\n" +
-		"/api/getIndexImg\n/api/getHeaderImg\n/api/getFooterImg\n" +
-		"/api/getAboutImg\n/api/getCoursesImg\n/api/getContactImg\n/api/getToursImg\n" +
-		"/api/getCourseInfoImg/{ref}"))
+	router.Walk(func(route *mux.Route, router *mux.Router, ancestors []*mux.Route) error {
+		tpl, _ := route.GetPathTemplate()
+		met, _ := route.GetMethods()
+		fmt.Fprintln(w,tpl,met)
+		return nil
+	})
 }
 func writeHeader(w http.ResponseWriter, r *http.Request) {
 	data := models.HeaderImg{
