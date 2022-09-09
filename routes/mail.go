@@ -10,9 +10,9 @@ import (
 )
 
 func MailSender(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Headers:", "*")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "*")
+	w.Header().Add("Access-Control-Allow-Headers:", "*")
+	w.Header().Add("Access-Control-Allow-Origin", "Accept, Authorization, Content-Type, Content-Length, Accept-Encoding")
+	w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 
 	if r.Method == "OPTIONS" {
 		w.WriteHeader(http.StatusOK)
