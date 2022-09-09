@@ -34,7 +34,7 @@ func RunApp() {
 	router = mux.NewRouter()
 	router.Use(CORS)
 	router.HandleFunc("/", Home)
-	router.HandleFunc("/api/getIndex/{lang}", IndexHandler)
+	router.HandleFunc("/api/getIndex/{lang}", IndexHandler).Methods("GET")
 	router.HandleFunc("/api/getAbout/{lang}", AboutHandler)
 	router.HandleFunc("/api/getCourses/{lang}", CoursesHandler)
 	router.HandleFunc("/api/getContact/{lang}", ContactHandler)
@@ -51,7 +51,7 @@ func RunApp() {
 	router.HandleFunc("/api/getFooterImg", FooterImgHandler)
 	router.HandleFunc("/api/getCourseInfoImg/{ref}", CoursesInfoImgHandler)
 
-	router.HandleFunc("/api/sendMail", MailSender)
+	router.HandleFunc("/api/sendMail", MailSender).Methods("OPTIONS","POST")
 
 	router.HandleFunc("/api/updateIndex", UpdateIndexHandler)
 	router.HandleFunc("/api/updateHeader", writeHeader)
