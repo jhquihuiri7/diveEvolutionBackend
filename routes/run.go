@@ -50,9 +50,9 @@ func RunApp() {
 	router.HandleFunc("/api/updateCourseInfoImg", writeCourseInfoImg).Methods("GET")
 	router.HandleFunc("/api/updateTourInfoBody", writeTourInfoBody).Methods("GET")
 
-	methods := handlers.AllowedMethods([]string{"GET", "POST"})
+	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
 	origin := handlers.AllowedOrigins([]string{"*","https://www.diveevolutiongps.com/"})
-	headers := handlers.AllowedHeaders([]string{"*"})
+	headers := handlers.AllowedHeaders([]string{"Accept", "Accept-Language", "Content-Type", "Content-Language", "Origin"})
 	credentials := handlers.AllowCredentials()
 	port := os.Getenv("PORT")
 	http.ListenAndServe(":"+port, handlers.CORS(methods, origin,headers, credentials)(router))
