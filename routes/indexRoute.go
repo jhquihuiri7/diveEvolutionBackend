@@ -1,30 +1,50 @@
 package routes
 
 import (
-	"diveEvolution/db"
-	"diveEvolution/utils"
+	"diveEvolution/models"
 	"encoding/json"
-	"github.com/gorilla/mux"
-	"go.mongodb.org/mongo-driver/mongo"
+	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
+	"os"
 )
 
-func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	language := params["lang"]
-	data := db.GetDocument(utils.Index, utils.GetLang(language, "index"))
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal(data)
-	w.Write(d)
+func IndexHandler(c *gin.Context) {
+	language := c.Param("lang")
+	f, err := os.Open("./data/DiveEvolution.Index.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	decoder := json.NewDecoder(f)
+	var index []models.Index
+	err = decoder.Decode(&index)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, v := range index {
+		if v.GetLang(language) {
+			c.Writer.WriteHeader(http.StatusOK)
+			c.Writer.Header().Set("Content-Type", "application/json")
+			d, _ := json.Marshal(v)
+			c.Writer.Write(d)
+			break
+		}
+	}
 }
-func IndexImgHandler(w http.ResponseWriter, r *http.Request) {
-	data := db.GetDocument(utils.IndexImg, "15388a1e-faaf-4fcb-9244-1ffa2813be59")
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal(data)
-	w.Write(d)
-}
-func UpdateIndexHandler(w http.ResponseWriter, r *http.Request) {
-	db.UpdateDocumment([]*mongo.Collection{utils.Index, utils.Footer})
+
+func IndexImgHandler(c *gin.Context) {
+	f, err := os.Open("./data/DiveEvolution.IndexImg.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var indexImg []models.IndexImg
+	decoder := json.NewDecoder(f)
+	err = decoder.Decode(&indexImg)
+
+	c.Writer.WriteHeader(http.StatusOK)
+	c.Writer.Header().Set("Content-Type", "application/json")
+	d, _ := json.Marshal(indexImg[0])
+	c.Writer.Write(d)
 }

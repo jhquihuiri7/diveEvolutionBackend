@@ -1,14 +1,40 @@
 package models
 
-type CourseInfo struct {
-	Id               string `bson:"_id"`
-	Ref              string `bson:"ref"`
-	Lang             string `bson:"lang"`
-	Course           `bson:"course"`
-	LargeDescription string   `bson:"largeDescription"`
-	Itinerary        []string `bson:"itinerary"`
+import "diveEvolution/utils"
+
+type CoursesInfo struct {
+	Id     string       `json:"id"`
+	CsInfo []CourseInfo `json:"coursesInfo"`
 }
+
+func (ci *CoursesInfo) GetLang(lang string) bool {
+	if ci.Id == utils.GetLang(lang, "coursesInfo") {
+		return true
+	}
+	return false
+}
+
+type CourseInfo struct {
+	Course           `json:"course"`
+	LargeDescription string   `json:"largeDescription"`
+	Itinerary        []string `json:"itinerary"`
+}
+
+func (ci *CourseInfo) GetCourse(ref string) bool {
+	if ci.Course.Ref == ref {
+		return true
+	}
+	return false
+}
+
 type CourseInfoImg struct {
-	Id  string   `bson:"_id"`
-	Img []string `bson:"img"`
+	Ref string   `json:"ref"`
+	Img []string `json:"img"`
+}
+
+func (ci *CourseInfoImg) GetCourse(ref string) bool {
+	if ci.Ref == ref {
+		return true
+	}
+	return false
 }

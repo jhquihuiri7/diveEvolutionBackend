@@ -1,0 +1,36 @@
+[{
+  "id": "5c240292-e280-4f49-8f6c-342295160271",
+  "title": "Contact us",
+  "introduction": "Are you interested in discovering our services? Contact our cell phone number, send us an email or come to our offices. We wait for you!",
+  "contactInfo": {
+    "address": "ENAV. Isabela y Guillermo Vega Gallegos",
+    "email": "mydiveevolution001@gmail.com",
+    "phone": "(+593) 96 905 0291"
+  },
+  "button": "Leave us a message",
+  "formtitle": "Chat with us"
+},
+{
+  "id": "2c00ab61-d7d7-4ef9-b7d9-da0898ee0a6e",
+  "title": "Nous contacter",
+  "introduction": "Vous souhaitez découvrir nos services ? Contactez notre numéro de téléphone portable, envoyez-nous un e-mail ou venez à nos bureaux. Nous vous espérons!",
+  "contactInfo": {
+    "address": "FRAV. Isabela y Guillermo Vega Gallegos",
+    "email": "mydiveevolution001@gmail.com",
+    "phone": "(+593) 96 905 0291"
+  },
+  "button": "Discutez avec nous",
+  "formtitle": "Laissez nous un message"
+},
+{
+  "id": "a310cb1b-21ca-42f8-936c-4c0fe117a2f0",
+  "title": "Contáctanos",
+  "introduction": "¿Tienes interes en descubrir nuestros servicios? Comunícate a nuestro número celular, envíanos un correo o acércate a nuestras oficinas. !Te esperamos¡",
+  "contactInfo": {
+    "address": "AV. Isabela y Guillermo Vega Gallegos",
+    "email": "mydiveevolution001@gmail.com",
+    "phone": "(+593) 96 905 0291"
+  },
+  "button": "Chatea con nosotros",
+  "formtitle": "Déjanos un mensaje"
+}]

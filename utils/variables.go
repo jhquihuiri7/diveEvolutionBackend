@@ -1,30 +1,26 @@
 package utils
 
-import "go.mongodb.org/mongo-driver/mongo"
+var Index string
+var IndexImg string
 
-var Client *mongo.Client
+var About string
+var AboutImg string
 
-var Index *mongo.Collection
-var IndexImg *mongo.Collection
+var Footer string
+var HeaderImg string
+var FooterImg string
 
-var About *mongo.Collection
-var AboutImg *mongo.Collection
+var Contact string
+var ContactImg string
 
-var Footer *mongo.Collection
-var HeaderImg *mongo.Collection
-var FooterImg *mongo.Collection
+var CoursesInfo string
+var CoursesInfoImg string
 
-var Contact *mongo.Collection
-var ContactImg *mongo.Collection
+var Courses string
+var CoursesImg string
 
-var CoursesInfo *mongo.Collection
-var CoursesInfoImg *mongo.Collection
+var ToursInfo string
+var ToursInfoImg string
 
-var Courses *mongo.Collection
-var CoursesImg *mongo.Collection
-
-var ToursInfo *mongo.Collection
-var ToursInfoImg *mongo.Collection
-
-var Tour *mongo.Collection
-var TourImg *mongo.Collection
+var Tour string
+var TourImg string

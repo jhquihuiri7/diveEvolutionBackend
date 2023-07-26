@@ -1,19 +1,39 @@
 package models
 
+import "diveEvolution/utils"
+
 type Tours struct {
-	Id string   `bson:"_id"`
-	Sc TourType `bson:"sc"`
-	Sx TourType `bson:"sx"`
-	Ib TourType `bson:"ib"`
+	Id string   `json:"id"`
+	Sc TourType `json:"sc"`
+	Sx TourType `json:"sx"`
+	Ib TourType `json:"ib"`
 }
+
+func (c *Tours) GetLang(lang string) bool {
+	if c.Id == utils.GetLang(lang, "tours") {
+		return true
+	}
+	return false
+}
+func (c *Tours) GetDestination(destination string) interface{} {
+	if destination == "sc" {
+		return c.Sc
+	} else if destination == "sx" {
+		return c.Sx
+	} else if destination == "ib" {
+		return c.Ib
+	}
+	return c.Sc
+}
+
 type TourType struct {
-	Snorkel []Course `bson:"snorkel"`
-	Dive    []Course `bson:"dive"`
-	Land    []Course `bson:"land"`
+	Snorkel []Course `json:"snorkel"`
+	Dive    []Course `json:"dive"`
+	Land    []Course `json:"land"`
 }
 type ToursImg struct {
-	Id         string   `bson:"_id"`
-	SnorkelImg []string `bson:"snorkelImg"`
-	DiveImg    []string `bson:"diveImg"`
-	LandImg    []string `bson:"landImg"`
+	Id         string   `json:"id"`
+	SnorkelImg []string `json:"snorkelImg"`
+	DiveImg    []string `json:"diveImg"`
+	LandImg    []string `json:"landImg"`
 }

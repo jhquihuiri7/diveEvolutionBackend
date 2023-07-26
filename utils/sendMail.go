@@ -37,16 +37,14 @@ func (r *MailRequest) SendMail() MailStruct {
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("err:", err)
-		response.Error = "send message error"
-	}else {
-		autoResponse := r.AutomaticResponse()
-		if autoResponse != "" {
-			response.Error = "automatic response error"
-		}
+		response.Error = "Error al enviar mensaje"
+	} else {
+		response.Success = "Correo enviado exitosamente"
+		r.AutomaticResponse()
 	}
 	return response
 }
-func (r *MailRequest) AutomaticResponse() string{
+func (r *MailRequest) AutomaticResponse() string {
 	// sender data
 	from := "jhonatan.quihuiri@gmail.com" //ex: "John.Doe@gmail.com"
 	password := "dfouvrynuvwkydpi"        // ex: "ieiemcjdkejspqz"
@@ -66,7 +64,7 @@ func (r *MailRequest) AutomaticResponse() string{
 
 	if err != nil {
 		return err.Error()
-	}else {
+	} else {
 		return ""
 	}
 }

@@ -1,0 +1,87 @@
+[{
+  "id": "a85f6d25-63ff-4b88-af9a-24671923e884",
+  "history": {
+    "introduction": "...DIVE EVOLUTION",
+    "brief": "Somos un Centro de enseñanza recreativa bajo las normativas y directrices PSS (Professional Scuba School), una de las Organizaciones Formativas de buceadores más importantes a nivel mundial. Con más de 25 años de experiencia, trabajo y constante evolución gracias a la pasion de expertos y profesionales del buceo que actualmente entrenan a miles de buceadores cada año.",
+    "question": "¿QUIENES SOMOS?",
+    "ask": "¿Te gustaría entrar a una escuela profesional de buceo?",
+    "answer": "Bienvenido a Galápagos PSS"
+  },
+  "mission": {
+    "title": "MISIÓN",
+    "description": "Formar buceadores con profesionalismo, destacados y reconocidos por su empatía hacia el medio ambiente empleando metodologías de enseñanza modernas y en constante evolución a través de experiencias participativas, eficientes y efectivas."
+  },
+  "vission": {
+    "title": "VISIÓN",
+    "description": "Revolucionar la enseñanza del buceo y hacer de este deporte recreativo una actividad  más accesible y llamativa para la comunidad galapagueña y así mostrarle al mundo un razgo cultural ecoamigable que promueva el turismo y la conservación del medio ambiente."
+  },
+  "value": {
+    "title": "VALORES",
+    "description": "",
+    "values": [
+      "Seguridad",
+      "Transparencia",
+      "Calidad",
+      "Compromiso",
+      "Aprendizaje"
+    ]
+  }
+},
+{
+  "_id": "3638b512-2c34-4d69-84dd-6668443af742",
+  "history": {
+    "introduction": "...DIVE EVOLUTION",
+    "brief": "We are a Recreational Education Center under the PSS (Professional Scuba School) regulations and guidelines, one of the most important Training Organizations for divers worldwide. With more than 25 years of experience, work and constant evolution thanks to the passion of diving experts and professionals who currently train thousands of divers each year.",
+    "question": "ABOUT US?",
+    "ask": "Would you like to enter a professional diving school?",
+    "answer": "Welcome to Galapagos PSS"
+  },
+  "mission": {
+    "title": "MISSION",
+    "description": "Train divers with professionalism, outstanding and recognized for their empathy towards the environment using modern and constantly evolving teaching methodologies through participatory, efficient and effective experiences."
+  },
+  "vission": {
+    "title": "VISION",
+    "description": "Revolutionize the teaching of diving and make this recreational sport a more accessible and attractive activity for the Galapagos community and thus show the world an eco-friendly cultural trait that promotes tourism and environmental conservation."
+  },
+  "value": {
+    "title": "VALUES",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "values": [
+      "Security",
+      "Transparency",
+      "Quality",
+      "Commitment",
+      "Learning"
+    ]
+  }
+},
+{
+  "_id": "9dd9e63a-cfe5-4806-8afe-fdbc102d612a",
+  "history": {
+    "introduction": "...DIVE EVOLUTION",
+    "brief": "Nous sommes un centre d'éducation récréative conformément aux réglementations et directives PSS (Professional Scuba School), l'une des plus importantes organisations de formation pour les plongeurs dans le monde. Avec plus de 25 ans d'expérience, de travail et d'évolution constante grâce à la passion d'experts et de professionnels de la plongée qui forment actuellement des milliers de plongeurs chaque année.",
+    "question": "QUI SOMMES NOUS?",
+    "ask": "Vous souhaitez intégrer une école de plongée professionnelle?",
+    "answer": "Bienvenue sur Galapagos PSS"
+  },
+  "mission": {
+    "title": "MISSION",
+    "description": "Former des plongeurs avec professionnalisme, exceptionnels et reconnus pour leur empathie envers l'environnement en utilisant des méthodologies d'enseignement modernes et en constante évolution à travers des expériences participatives, efficientes et efficaces."
+  },
+  "vission": {
+    "title": "VISION",
+    "description": "Révolutionner l'enseignement de la plongée et faire de ce sport récréatif une activité plus accessible et attrayante pour la communauté des Galapagos et ainsi montrer au monde un trait culturel respectueux de l'environnement qui favorise le tourisme et la préservation de l'environnement."
+  },
+  "value": {
+    "title": "VALEURS",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "values": [
+      "Sécurité",
+      "Transparence",
+      "Qualité",
+      "Engagement",
+      "Apprentissage"
+    ]
+  }
+}]

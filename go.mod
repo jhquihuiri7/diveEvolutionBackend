@@ -1,12 +1,8 @@
 module diveEvolution
 
-// +heroku goVersion go1.16
 go 1.16
 
 require (
-	github.com/gorilla/handlers v1.5.1
-	github.com/gorilla/mux v1.8.0
-	github.com/johnfercher/maroto v0.38.0 // indirect
-	github.com/satori/go.uuid v1.2.0
+	github.com/gin-gonic/gin v1.9.1
 	go.mongodb.org/mongo-driver v1.9.0
 )

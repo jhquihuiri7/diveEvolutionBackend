@@ -1,31 +1,41 @@
 package models
 
+import "diveEvolution/utils"
+
 type Courses struct {
-	Id string `bson:"_id"`
-	Methodology
-	CourseTypes []Course
+	Id          string `json:"id"`
+	Methodology `json:"methodology"`
+	CourseTypes []Course `json:"courseTypes"`
 }
+
+func (c *Courses) GetLang(lang string) bool {
+	if c.Id == utils.GetLang(lang, "courses") {
+		return true
+	}
+	return false
+}
+
 type Methodology struct {
-	Title   string   `bson:"title"`
-	Methods []Method `bson:"methods"`
+	Title   string   `json:"title"`
+	Methods []Method `json:"methods"`
 }
 type Method struct {
-	Title       string   `bson:"title"`
-	Description string   `bson:"description"`
-	Question1   string   `bson:"question1"`
-	Works       string   `bson:"work"`
-	Question2   string   `bson:"question2"`
-	Advantages  []string `bson:"advantages"`
+	Title       string   `json:"title"`
+	Description string   `json:"description"`
+	Question1   string   `json:"question1"`
+	Works       string   `json:"work"`
+	Question2   string   `json:"question2"`
+	Advantages  []string `json:"advantages"`
 }
 type Course struct {
-	Ref         string   `bson:"ref"`
-	Title       string   `bson:"title"`
-	Description string   `bson:"description"`
-	Included    []string `bson:"included"`
-	Price       int      `bson:"price"`
+	Ref         string   `json:"ref"`
+	Title       string   `json:"title"`
+	Description string   `json:"description"`
+	Included    []string `json:"included"`
+	Price       int      `json:"price"`
 }
 type CoursesImg struct {
-	Id         string   `bson:"_id"`
-	MethodsImg []string `bson:"methodsImg"`
-	CoursesImg []string `bson:"coursesImg"`
+	Id         string   `json:"id"`
+	MethodsImg []string `json:"methodsImg"`
+	CoursesImg []string `json:"coursesImg"`
 }

@@ -1,0 +1,22 @@
+[{
+  "id": "15388a1e-faaf-4fcb-9244-1ffa2813be59",
+  "body_img": {
+    "section1": {
+      "calidad": [
+        "https://res.cloudinary.com/logicielapplab/image/upload/v1676924517/DiveEvolution/IndexBody/calidad-min_e7cowg.jpg",
+        "https://res.cloudinary.com/logicielapplab/image/upload/v1651347812/DiveEvolution/IndexBody/award_pifluk.svg"
+      ],
+      "precio": [
+        "https://res.cloudinary.com/logicielapplab/image/upload/v1676154585/DiveEvolution/IndexBody/IMG_20210424_214348-min_mrlgns.jpg",
+        "https://res.cloudinary.com/logicielapplab/image/upload/v1651347812/DiveEvolution/IndexBody/currency-dollar_koyukh.svg"
+      ]
+    },
+    "section2": {
+      "items": [
+        "https://res.cloudinary.com/logicielapplab/image/upload/v1676154777/DiveEvolution/IndexBody/turtle-g018f5b17a_1920_qqlemc-min_ebxbmd.jpg",
+        "https://res.cloudinary.com/logicielapplab/image/upload/v1676925889/DiveEvolution/IndexBody/GOPR2012_1663621552525-min_gr2dp1.jpg"
+      ]
+    },
+    "backgroud": "https://res.cloudinary.com/logicielapplab/image/upload/v1651954750/DiveEvolution/IndexBody/shark-g2b72e37ba_1920_gfmze3.jpg"
+  }
+}]

@@ -1,0 +1,40 @@
+func GetDocumentDest(collection *mongo.Collection, id string, destination string) models.TourType {
+	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
+	cur, err := collection.Find(context.TODO(), bson.D{{"_id", id}}, opts)
+	if err != nil {
+		log.Fatal(err)
+	}
+	var result models.Tours
+	for cur.Next(context.TODO()) {
+		if err != nil {
+		err := cur.Decode(&result)
+			fmt.Println("ERROR AL DECODIFICAR")
+			log.Fatal(err)
+		}
+	}
+	if destination == "sc" {
+		return result.Sc
+	} else if destination == "sx" {
+		return result.Sx
+	} else if destination == "ib" {
+		return result.Ib
+	} else {
+		return result.Sc
+	}
+}
+func GetDocumentCourse(collection *mongo.Collection, lang string, ref string) models.CourseInfo {
+	opts := options.Find().SetProjection(bson.D{{"_id", 0}})
+	cur, err := collection.Find(context.TODO(), bson.D{{"ref", ref}, {"lang", lang}}, opts)
+	if err != nil {
+		log.Fatal(err)
+	}
+	var result models.CourseInfo
+	for cur.Next(context.TODO()) {
+		err := cur.Decode(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+	fmt.Println(result)
+	return result
+}

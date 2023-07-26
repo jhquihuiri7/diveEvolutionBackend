@@ -1,0 +1,309 @@
+[{
+  "id": "ab0c5aa3-a761-4e19-a452-79bc02b4ccf3",
+  "methodology": {
+    "title": "Metodologia",
+    "methods": [
+      {
+        "title": "My PSS",
+        "description": "Aplicación móvi para IOS y Android",
+        "question1": "¿Cómo la obtengo?",
+        "work": "Descárgala de tu app store",
+        "question2": "Ventajas",
+        "advantages": [
+          "Provee tu estatus actual de buzo PSS",
+          "Enlista todas tus calificaciones",
+          "Provee una lista de contacto para todos tus estudiantes y afiliados"
+        ]
+      },
+      {
+        "title": "My EVO",
+        "description": "Plataforma de estudio",
+        "question1": "¿Cómo la obtengo?",
+        "work": "Descárgala de tu app store",
+        "question2": "Ventajas",
+        "advantages": [
+          "Acceso a cursos de entrenamiento PSS grabados",
+          "Desacarga el material de cursos de entrenamiento PSS",
+          "Trabaja sin conexión en tu entrenamiento PSS"
+        ]
+      },
+      {
+        "title": "My Card",
+        "description": "Credenciales digitales",
+        "question1": "¿Cómo la obtengo?",
+        "work": "Llévala contigo en tu teléfono",
+        "question2": "Ventajas",
+        "advantages": [
+          "Visualiza, descarga o imprimir tu credenciales digitales",
+          "Correo PSS",
+          "Conéctate al Sitio Web PSS"
+        ]
+      }
+    ]
+  },
+  "coursetypes": [
+    {
+      "ref": "9e54e4c6-51be-258a-ws54-d09907304593",
+      "title": "Scuba Experience",
+      "description": "El programa Scuba Experiencie no es un curso de certificación, sino una introducción al buceo. Al finalizar, el participante recibe un certificado de participación, pero este no tiene validez como calificación de buceo. Sin embargo, si disfrutas de la experiencia, puedes continuar con el curso Scuba Diver directamente.",
+      "included": [
+        "Breve introducción al buceo",
+        "Instructor PSS  Biligüe",
+        "Equipos Scuba",
+        "Ticket de abordaje",
+        "1 inmersión practico – recreativa",
+        "1 inmersión recreativa",
+        "Snacks y bebidas",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 200
+    },
+    {
+      "ref": "9e90e4c6-51ws-446a-ab54-d01207304593",
+      "title": "Scuba Diver",
+      "description": "El curso Scuba Diver, es la forma más rápida de convertirte en buceador. La certificación internacional Scuba Diver te permite bucear en todo el mundo, a una profundidad de 12 metros (40 pies), con la condición de que estés acompañado por un profesional del buceo. Esto se considera una certificación de buzo no autónomo según los estándares RSTC.",
+      "included": [
+        "Introducción al buceo",
+        "Instructor PSS  Biligüe",
+        "Equipos SCUBA",
+        "2 días de clases teórico/práctico",
+        "2 inmersiones prácticas en piscina",
+        "Ticket de abordaje",
+        "1 inmersión práctica en el mar.",
+        "1 inmersión práctico – recreativa en el mar.",
+        "Certificación Vitalicia SCUBA DIVER PSS",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 380
+    },
+    {
+      "ref": "9e88e4c6-51be-446a-ab54-d09907304593",
+      "title": "Open Water Diver PSS",
+      "description": "El curso Open Water Diver te proporciona la formación y las habilidades necesarias para convertirte en un buceador autónomo. Si ya ha asistido al curso Scuba Diver... ¡ya tiene una ventaja inicial y la capacitación recibida durante ese curso puede contar para su certificación de aguas abiertas!. La certificación internacional que obtendrás te habilita para bucear con un compañero (sin el requisito de estar acompañado por un profesional de buceo) a una profundidad máxima de 18 metros (60 pies).",
+      "included": [
+        "Introducción al buceo",
+        "Instructor PSS  Biligüe",
+        "Equipos de buceo SCUBA",
+        "Acceso a la plataforma personal EVO E-learning",
+        "4 días de clases teórico/práctico",
+        "2 inmersiones prácticas en piscina",
+        "Ticket de abordaje",
+        "1 inmersión práctica en el mar.",
+        "1 inmersión práctico – recreativa en el mar.",
+        "1 inmersión recreativa en el mar.",
+        "1 día de clases teóricas",
+        "1 día de exámenes y corrección de errores",
+        "Certificación Vitalicia OPEN WATER DIVER PSS",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 500
+    },
+    {
+      "ref": "ef010b42-4a29-4fda-a9b4-d94925120753",
+      "title": "Advanced Open Water Diver PSS",
+      "description": "El curso Advanced Open Water Diver representa el nivel de entrenamiento de buceo en el que aprenderás a gestionar algunas actividades especiales, como explorar a mayor profundidad y navegar con y sin brújula. También puede aprender a buscar y rescatar objetos, bucear en una corriente, en naufragios, en condiciones de poca visibilidad o de noche. La certificación internacional que obtendrás durante este curso te certifica para bucear, con un compañero de buceo, a una profundidad de 30 metros (100 pies).",
+      "included": [
+        "Instructor PSS  Biligüe",
+        "Equipos de buceo SCUBA.",
+        "Acceso a la plataforma personal EVO E-learning.",
+        "5 días de clases teórico/práctico",
+        "2 inmersiones prácticas en el mar",
+        "Ticket de abordaje",
+        "2 inmersiones de entrenamiento en aguas abiertas",
+        "1 inmersión nocturna.",
+        "1 día de clases teóricas",
+        "1 día de exámenes y corrección de errores",
+        "Certificación Vitalicia ADVANCED OPEN WATER DIVER PSS",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 700
+    },
+    {
+      "ref": "944910f3-e532-4aef-a899-ba043e90652f",
+      "title": "Scuba Rescue Diver PSS",
+      "description": "El curso Scuba Rescue Diver es una de las mejores formas de aprender a hacer frente a emergencias de buceo. Sin embargo, en el sistema de formación PSS existen otros dos cursos dedicados al rescate: Primeros Auxilios - RCP y Oxígeno en Emergencias de Buceo. El primero tiene aplicaciones generales, mientras que el segundo se ocupa de la administración de oxígeno normobárico a un buceador lesionado. Por lo tanto, estos tres cursos son complementarios y están diseñados para tratar escenarios asociados con una emergencia de buceo.",
+      "included": [
+        "Instructor PSS  Biligüe",
+        "Equipos de buceo SCUBA.",
+        "Acceso a la plataforma personal EVO E-learning.",
+        "5 días de clases teórico/práctico",
+        "1 inmersión práctica en piscina.",
+        "1 inmersión de entrenamiento en el mar.",
+        "Ticket de abordaje",
+        "2 inmersiones de entrenamiento en aguas abiertas",
+        "1 día de clases teóricas",
+        "1 día de exámenes y corrección de errores",
+        "Certificación Vitalicia SCUBA RESCUE DIVER PSS",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 700
+    },
+    {
+      "ref": "861da9db-74ee-4ba9-9973-585e3dv5e1c6",
+      "title": "Deep Diver PSS",
+      "description": "Aunque la certificación Advanced Open Water Diver abre la puerta a muchas nuevas oportunidades de buceo, profundizar sin el entrenamiento adecuado es irresistible. Si quieres aventurarte a profundidades más profundas, puedes asistir al curso Deep Diver. Al final de la formación, tendrás los conocimientos y las habilidades para realizar inmersiones sin paradas, con un compañero de buceo, hasta una profundidad máxima de 40 metros (130 pies), que es el límite máximo de profundidad para buceadores recreativos.",
+      "included": [
+        "Instructor PSS  Biligüe",
+        "Equipos de buceo SCUBA.",
+        "Acceso a la plataforma personal EVO E-learning.",
+        "5 días de clases teórico/práctico",
+        "2 inmersiones prácticas en el mar",
+        "Ticket de abordaje",
+        "1 inmersiones de entrenamiento en aguas abiertas",
+        "3 inmersiones de entrenamiento en aguas profundas",
+        "1 día de clases teóricas",
+        "1 día de exámenes y corrección de errores",
+        "Certificación Vitalicia DEEP DIVER PSS",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 900
+    },
+    {
+      "ref": "861da9db-74ee-4ba9-9978-585e3fb5e1c2",
+      "title": "Dive Master PSS",
+      "description": "Al final de tu formación, tendrás los conocimientos y las habilidades para realizar inmersiones sin paradas, con un compañero de buceo, hasta una profundidad máxima de 40 metros (130 pies), que es el límite máximo de profundidad para buceadores recreativos. Aventúrate a la experiencia como Dive Master obteniendo la oportunidad de entrenar junto con tu instructor ya que no solo serás un experto en las habilidades del buceo sino que servirás de guía y ejemplo para buceadores activos y futuros buceadores alrededor del mundo.",
+      "included": [
+        "Instructor PSS  Biligüe",
+        "Equipos de buceo SCUBA.",
+        "Acceso a la plataforma personal EVO E-learning.",
+        "5 días de clases teórico/práctico",
+        "2 inmersiones prácticas en el mar",
+        "Ticket de abordaje",
+        "1 inmersiones prácticas en aguas abiertas",
+        "3 inmersiones de prácticas en aguas profundas",
+        "1 día de clases teóricas",
+        "1 día de exámenes y corrección de errores",
+        "6 inmersiones de entrenamiento después de terminar las pruebas prácticas y teóricas.",
+        "Certificación Vitalicia DIVE MASTER PSS",
+        "Solicita una copia del registro fotográfico de tu experiencia en nuestro Dive Center totalmente GRATIS.",
+        "Obtén un descuento del 10% por la compra de 3 unidades en adelante."
+      ],
+      "price": 1000
+    }
+  ]
+},
+{
+  "id": "7a6610c6-5aa6-4e44-8e9a-39cae82a79e8",
+  "methodology": {
+    "title": "Methodology",
+    "methods": [
+      {
+        "title": "My PSS",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "question1": "How do I get it?",
+        "work": "Lorem Ipsum is simply dummy text",
+        "question2": "Advantages",
+        "advantages": [
+          "Provides your current PSS diver status",
+          "List all your qualifications",
+          "Provides contact list for all your students and affiliates"
+        ]
+      },
+      {
+        "title": "My EVO",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "question1": "How do I get it?",
+        "work": "Lorem Ipsum is simply dummy text",
+        "question2": "Advantages",
+        "advantages": [
+          "Access to PSS registered training courses",
+          "Download PSS training course material",
+          "Work offline on PSS training"
+        ]
+      },
+      {
+        "title": "Plataforma PSS",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "question1": "How do I get it?",
+        "work": "Lorem Ipsum is simply dummy text",
+        "question2": "Ventajas",
+        "advantages": [
+          "Hola",
+          "Mundo",
+          "Logiciel"
+        ]
+      }
+    ]
+  },
+  "coursetypes": [
+    {
+      "ref": "9e88e4c6-51be-446a-ab54-d09907304593",
+      "title": "Open Water Diver PSS",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "included": [
+        "Bilingual PSS Instructor",
+        "Scuba Equipment",
+        "4 days of practical and theoretical study",
+        "Didactic and digital material",
+        "PSS International License",
+        "Free recreational diving"
+      ],
+      "price": 250
+    }
+  ]
+},
+{
+  "id": "4b5ee0ba-9376-4e6d-aa21-14f28a74df2d",
+  "methodology": {
+    "title": "Méthodologie",
+    "methods": [
+      {
+        "title": "My PSS",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "question1": "Comment puis-je l'obtenir?",
+        "work": "Lorem Ipsum is simply dummy text",
+        "question2": "Avantages",
+        "advantages": [
+          "Fournit votre statut actuel de plongeur PSS",
+          "Liste de toutes vos notes",
+          "Fournit une liste de contacts pour tous vos étudiants et affiliés"
+        ]
+      },
+      {
+        "title": "My EVO",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "question1": "Comment puis-je l'obtenir?",
+        "work": "Lorem Ipsum is simply dummy text",
+        "question2": "Avantages",
+        "advantages": [
+          "Accès à la formation enregistrée PSS",
+          "Télécharger le matériel de cours de formation PSS",
+          "Travailler hors ligne sur la formation PSS"
+        ]
+      },
+      {
+        "title": "Plataforma PSS",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "question1": "Comment puis-je l'obtenir?",
+        "work": "Lorem Ipsum is simply dummy text",
+        "question2": "Avantages",
+        "advantages": [
+          "Visualisez, téléchargez et imprimez vos identifiants",
+          "Email PSS",
+          "Se connecter au site Web PSS"
+        ]
+      }
+    ]
+  },
+  "coursetypes": [
+    {
+      "ref": "9e88e4c6-51be-446a-ab54-d09907304593",
+      "title": "Open Water",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "included": [
+        "Hola",
+        "Mundo",
+        "Logiciel",
+        "Applab",
+        "Saludos"
+      ],
+      "price": 250
+    }
+  ]
+}]

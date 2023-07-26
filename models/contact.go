@@ -1,21 +1,31 @@
 package models
 
+import "diveEvolution/utils"
+
 type Contact struct {
-	Id           string `bson:"_id"`
-	Title        string `bson:"title"`
-	Introduction string `bson:"introduction"`
-	ContactInfo  `bson:"contactInfo"`
-	Button       string `bson:"button"`
-	FormTitle    string `bs:"formTitle"`
+	Id           string `json:"id"`
+	Title        string `json:"title"`
+	Introduction string `json:"introduction"`
+	ContactInfo  `json:"contactInfo"`
+	Button       string `json:"button"`
+	FormTitle    string `json:"formTitle"`
 }
+
+func (c *Contact) GetLang(lang string) bool {
+	if c.Id == utils.GetLang(lang, "contact") {
+		return true
+	}
+	return false
+}
+
 type ContactInfo struct {
-	Address string `bson:"address"`
-	Email   string `bson:"email"`
-	Phone   string `bson:"phone"`
+	Address string `json:"address"`
+	Email   string `json:"email"`
+	Phone   string `json:"phone"`
 }
 type ContactImg struct {
-	Id         string `bson:"_id"`
-	Background string `bson:"background"`
-	Foreground string `bson:"foreground"`
-	Form       string `bson:"form"`
+	Id         string `json:"id"`
+	Background string `json:"background"`
+	Foreground string `json:"foreground"`
+	Form       string `json:"form"`
 }

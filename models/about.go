@@ -1,35 +1,50 @@
 package models
 
+import (
+	"diveEvolution/utils"
+)
+
 type About struct {
-	Id      string `bson:"_id"`
-	History `bson:"history"`
-	Mission MVission `bson:"mission"`
-	Vission MVission `bson:"vission"`
-	Value   Value    `bson:"value"`
+	Id      string `json:"id"`
+	History `json:"history"`
+	Mission MVission `json:"mission"`
+	Vission MVission `json:"vission"`
+	Value   Value    `json:"value"`
 }
+
+func (a *About) GetLang(lang string) bool {
+	if a.Id == utils.GetLang(lang, "about") {
+		return true
+	}
+	return false
+}
+
 type History struct {
-	Introduction string `bson:"introduction"`
-	Brief        string `bson:"brief"`
-	Question     string `bson:"question"`
-	Button       string `bson:"button"`
+	Introduction string `json:"introduction"`
+	Brief        string `json:"brief"`
+	Question     string `json:"question"`
+	Button       string `json:"button"`
+	Ask          string `json:"ask"`
+	Answer       string `json:"answer"`
 }
 type MVission struct {
-	Title       string `bson:"title"`
-	Description string `bson:"description"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
 }
 type Value struct {
-	Title       string   `bson:"title"`
-	Description string   `bson:"description"`
-	Values      []string `bson:"values"`
+	Title       string   `json:"title"`
+	Description string   `json:"description"`
+	Values      []string `json:"values"`
 }
 
 type AboutImg struct {
-	Id         string `bson:"_id"`
-	HistoryImg `bson:"historyImg"`
-	VissionImg string   `bson:"vissionImg"`
-	ValueImg   []string `bson:"valueImg"`
+	Id         string `json:"id"`
+	HistoryImg `json:"historyImg"`
+	VissionImg string   `json:"vissionImg"`
+	MissionImg string   `json:"missionImg"`
+	ValueImg   []string `json:"valueImg"`
 }
 type HistoryImg struct {
-	Background string `bson:"background"`
-	Logo       string `bson:"logo"`
+	Background string `json:"background"`
+	Logo       string `json:"logo"`
 }

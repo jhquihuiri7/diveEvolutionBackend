@@ -1,38 +1,51 @@
 package models
 
+import (
+	"diveEvolution/utils"
+	"fmt"
+)
+
 type Index struct {
-	Id   string `bson:"_id"`
-	Body `bson:"body"`
+	Id   string `json:"id"`
+	Body `json:"body"`
 }
+
+func (i *Index) GetLang(lang string) bool {
+	fmt.Println(i.Id)
+	if i.Id == utils.GetLang(lang, "index") {
+		return true
+	}
+	return false
+}
+
 type Body struct {
-	Section1 `bson:"section1"`
-	Section2 `bson:"section2"`
-	Title    string `bson:"title"`
-	Button   string `bson:"button"`
+	Section1 `json:"section1"`
+	Section2 `json:"section2"`
+	Title    string `json:"title"`
+	Button   string `json:"button"`
 }
 
 type Section1 struct {
-	Calidad []string `bson:"calidad"`
-	Precio  []string `bson:"precio"`
+	Calidad []string `json:"calidad"`
+	Precio  []string `json:"precio"`
 }
 type Section2 struct {
-	Items []ItemsInfo `bson:"items"`
+	Items []*ItemsInfo `json:"items"`
 }
 type ItemsInfo struct {
-	Title       string `bson:"title"`
-	Description string `bson:"description"`
-	Button      string `bson:"button"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	Button      string `json:"button"`
 }
 
 type IndexImg struct {
-	Id      string `bson:"_id"`
-	BodyImg `bson:"body_img"`
+	BodyImg `json:"body_img"`
 }
 type BodyImg struct {
-	Section1    `bson:"section1"`
-	Section2Img `bson:"section2"`
-	Background  string `bson:"backgroud"`
+	Section1    `json:"section1"`
+	Section2Img `json:"section2"`
+	Background  string `json:"backgroud"`
 }
 type Section2Img struct {
-	ItemsImg []string `bson:"items_img"`
+	ItemsImg []string `json:"items"`
 }

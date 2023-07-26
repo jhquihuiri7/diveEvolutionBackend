@@ -1,29 +1,65 @@
 package routes
 
 import (
-	"diveEvolution/db"
-	"diveEvolution/utils"
+	"diveEvolution/models"
 	"encoding/json"
-	"github.com/gorilla/mux"
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
+	"os"
 )
 
-func CoursesInfoHandler(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	language := params["lang"]
-	reference := params["ref"]
-	data := db.GetDocumentCourse(utils.CoursesInfo, language, reference)
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal(data)
-	w.Write(d)
+func CoursesInfoHandler(c *gin.Context) {
+	language := c.Param("lang")
+	reference := c.Param("ref")
+
+	f, err := os.Open("./data/DiveEvolution.CoursesInfo.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	var coursesInfo []models.CoursesInfo
+	decoder := json.NewDecoder(f)
+	err = decoder.Decode(&coursesInfo)
+
+	fmt.Println(coursesInfo)
+
+	for _, v := range coursesInfo {
+		if v.GetLang(language) {
+			for _, cs := range v.CsInfo {
+				if cs.GetCourse(reference) {
+					c.Writer.WriteHeader(http.StatusOK)
+					c.Writer.Header().Set("Content-Type", "application/json")
+					d, _ := json.Marshal(cs)
+					c.Writer.Write(d)
+				}
+			}
+		}
+	}
+
+	c.Writer.WriteHeader(http.StatusOK)
+	c.Writer.Header().Set("Content-Type", "application/json")
+	d, _ := json.Marshal("")
+	c.Writer.Write(d)
 }
-func CoursesInfoImgHandler(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	reference := params["ref"]
-	data := db.GetDocument(utils.CoursesInfoImg, reference)
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal(data)
-	w.Write(d)
+func CoursesInfoImgHandler(c *gin.Context) {
+	reference := c.Param("ref")
+
+	f, err := os.Open("./data/DiveEvolution.CoursesInfoImg.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var coursesInfoImg []models.CourseInfoImg
+	decoder := json.NewDecoder(f)
+	err = decoder.Decode(&coursesInfoImg)
+
+	for _, v := range coursesInfoImg {
+		if v.GetCourse(reference) {
+			c.Writer.WriteHeader(http.StatusOK)
+			c.Writer.Header().Set("Content-Type", "application/json")
+			d, _ := json.Marshal(v)
+			c.Writer.Write(d)
+		}
+	}
 }

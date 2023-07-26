@@ -1,0 +1,99 @@
+[{
+  "id": "4164da5e-cacd-4827-8891-26945019a5be",
+  "body": {
+    "section1": {
+      "calidad": [
+        "Calidad",
+        "Control de calidad y evolución de servicio para brindarte la mejor experiencia."
+      ],
+      "precio": [
+        "Precio",
+        "Disponemos de variedad de precios para tu elección, accesible a todo tipo de presupuesto."
+      ]
+    },
+    "section2": {
+      "items": [
+        {
+          "title": "Bucea por primera vez",
+          "description": "Conoce lo qué es el buceo llevándote la experiencia de un Discovery Diving y descubre lo que la vida puede ofrecerte bajo el agua.",
+          "button": "Quiero hacerlo"
+        },
+        {
+          "title": "CURSO PSS OPEN WATER",
+          "description": "Es el primer paso para convertirte en un buceador autónomo. Esta titulación internacional te permitirá bucear en cualquier parte del mundo a una profundidad máxima de 18 metros.",
+          "button": "Lo quiero"
+        }
+      ]
+    },
+    "title": "¡ES UN HONOR CONOCERTE!",
+    "button": "Más info",
+    "subtitle": "GALÁPAGOS",
+    "little": "VIDA EN EVOLUCIÓN"
+  }
+},
+{
+  "id": "5da9ff07-3a11-4cc9-8d0a-f9a0e6daf925",
+  "body": {
+    "section1": {
+      "calidad": [
+        "Quality",
+        "Quality control and service evolution to provide you with the best experience."
+      ],
+      "precio": [
+        "Price",
+        "We have a variety of prices for your choice, accessible to all types of budget."
+      ]
+    },
+    "section2": {
+      "items": [
+        {
+          "title": "Dive for the first time",
+          "description": "Get to know what diving is by taking the experience of a Discovery Diving and discover what life can offer you underwater.",
+          "button": "I want to do it"
+        },
+        {
+          "title": "PSS OPEN WATER COURSE",
+          "description": "It is the first step to becoming an autonomous diver. This international qualification will allow you to dive anywhere in the world to a maximum depth of 18 meters.",
+          "button": "I want it"
+        }
+      ]
+    },
+    "title": "IT'S AN HONOR TO MEET YOU!",
+    "button": "Learn more",
+    "subtitle": "GALAPAGOS",
+    "little": "LIFE IN EVOLUTION"
+  }
+},
+{
+  "id": "076d9ef9-bc59-40c7-ae7f-6a9e90cae856",
+  "body": {
+    "section1": {
+      "calidad": [
+        "Qualité",
+        "Contrôle qualité et évolution du service pour vous offrir la meilleure expérience."
+      ],
+      "precio": [
+        "Prix",
+        "Nous avons une variété de prix pour votre choix, accessible à tous les types de budget."
+      ]
+    },
+    "section2": {
+      "items": [
+        {
+          "title": "Plonger pour la première fois",
+          "description": "Apprenez à connaître ce qu'est la plongée en prenant l'expérience d'une plongée découverte et découvrez ce que la vie peut vous offrir sous l'eau.",
+          "button": "Je veux le faire"
+        },
+        {
+          "title": "COURS PSS OPEN WATER",
+          "description": "C'est la première étape pour devenir un plongeur autonome. Cette qualification internationale vous permettra de plonger partout dans le monde à une profondeur maximale de 18 mètres.",
+          "button": "J'en veux"
+        }
+      ]
+    },
+    "title": "C'EST UN HONNEUR DE VOUS RENCONTRER!",
+    "button": "Apprendre encore plus",
+    "subtitle": "GALAPAGOS",
+    "little": "LA VIE EN EVOLUTION"
+  }
+}]

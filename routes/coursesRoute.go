@@ -1,27 +1,49 @@
 package routes
 
 import (
-	"diveEvolution/db"
-	"diveEvolution/utils"
+	"diveEvolution/models"
 	"encoding/json"
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
+	"os"
 )
 
-func CoursesHandler(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	language := params["lang"]
+func CoursesHandler(c *gin.Context) {
+	language := c.Param("lang")
+	f, err := os.Open("./data/DiveEvolution.Courses.json")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	data := db.GetDocument(utils.Courses, utils.GetLang(language, "courses"))
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal(data)
-	w.Write(d)
+	decoder := json.NewDecoder(f)
+	var courses []models.Courses
+	err = decoder.Decode(&courses)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, v := range courses {
+		if v.GetLang(language) {
+			c.Writer.WriteHeader(http.StatusOK)
+			c.Writer.Header().Set("Content-Type", "application/json")
+			d, _ := json.Marshal(v)
+			c.Writer.Write(d)
+			break
+		}
+	}
 }
-func CoursesImgHandler(w http.ResponseWriter, r *http.Request) {
-	data := db.GetDocument(utils.CoursesImg, "fd17c746-2dbb-4a51-9cd1-7becf48b2bf0")
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal(data)
-	w.Write(d)
+func CoursesImgHandler(c *gin.Context) {
+	f, err := os.Open("./data/DiveEvolution.CoursesImg.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var coursesImg []models.CoursesImg
+	decoder := json.NewDecoder(f)
+	err = decoder.Decode(&coursesImg)
+
+	c.Writer.WriteHeader(http.StatusOK)
+	c.Writer.Header().Set("Content-Type", "application/json")
+	d, _ := json.Marshal(coursesImg[0])
+	c.Writer.Write(d)
 }

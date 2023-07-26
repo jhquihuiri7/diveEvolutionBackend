@@ -1,0 +1,748 @@
+[{
+  "id": "2b702a78-e175-435a-9a49-a0a7f7d406d7",
+  "sc": {
+    "snorkel": [
+      {
+        "ref": "4f1600d3-2489-4ecf-be4e-928c779f2ed3",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "dive": [
+      {
+        "ref": "b9cc6767-fa65-4785-80a8-8c36a8fafbc8",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "land": [
+      {
+        "ref": "215352f7-d636-48e4-a67d-08b9ce297fe0",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ]
+  }
+},
+{
+  "id": "501b3474-f7fb-4b7f-b110-309082d7a5f2",
+  "sc": {
+    "snorkel": [
+      {
+        "ref": "4f1600d3-2489-4ecf-be4e-928c779f2ed3",
+        "title": "ENOpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "dive": [
+      {
+        "ref": "b9cc6767-fa65-4785-80a8-8c36a8fafbc8",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "land": [
+      {
+        "ref": "215352f7-d636-48e4-a67d-08b9ce297fe0",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ]
+  }
+},
+{
+  "id": "ffdbd06c-91b8-4e36-b3c8-26dff1aa39f6",
+  "sc": {
+    "snorkel": [
+      {
+        "ref": "73a54a2d-38e4-41a0-8b1f-d2d8841f9e7e",
+        "title": "Tour 360°",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y traje húmedo",
+          "Guía naturalista bilingüe",
+          "4 lugares de visita + Kicker Rock",
+          "Almuerzo a bordo",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 220
+      },
+      {
+        "ref": "e4a712ae-0c83-40c5-8040-210fcaa5cad8",
+        "title": "Tour Leon Dormido - Kicker Rock",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y traje húmedo",
+          "Guía Naturalista Bilingüe",
+          "Visita de Kicker Rock + una playa según itinerario del día",
+          "Almuerzo a bordo",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 190
+      },
+      {
+        "ref": "d53cc788-0f62-490e-a185-f3f8792ab643",
+        "title": "Tour Islas Lobos",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y traje húmedo",
+          "Guía naturalista bilingüe",
+          "Visita a Islas Lobos + una playa según el itinerairo del día",
+          "Almuerzo a bordo",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 140
+      },
+      {
+        "ref": "f5e917cb-cde8-4966-a938-2bbe6420ce1e",
+        "title": "Tour Española",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y traje húmedo",
+          "Guía naturalista bilingüe",
+          "Visita a Española + Snorkel en Punta Suarez",
+          "Almuerzo a bordo",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 240
+      },
+      {
+        "ref": "4a1b8bb1-b2a9-4fc9-9785-d37e898eac31",
+        "title": "Panga Ride",
+        "description": "",
+        "included": [
+          "Paseo completo por toda la bahía",
+          "Visita de una playa",
+          "Equipos de snorkel y traje húmedo",
+          "Snacks y bebidas",
+          "Servicio de guardavidas"
+        ],
+        "price": 50
+      },
+      {
+        "ref": "cfddc919-f171-4d1e-bb1c-33cacd7906d8",
+        "title": "Sport Fishing",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de pesca deportiva",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente",
+          "Fotografía"
+        ],
+        "price": 200
+      },
+      {
+        "ref": "cfetc919-f171-4d1e-1c-24cacd7989w1",
+        "title": "Punta Pitt",
+        "description": "",
+        "included": [
+          "XXXXXXXXXXXXXXXXXXXXXXXXx",
+          "Transfer",
+          "Equipos de pesca deportiva",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente",
+          "Fotografía"
+        ],
+        "price": 200
+      }
+    ],
+    "dive": [
+      {
+        "ref": "6549b32c-2029-4b23-b3c5-444d2b0b9788",
+        "title": "Discovery Diving",
+        "description": "",
+        "included": [
+          "Mini curso gratuito de introducción al buceo",
+          "Profundidad máxima de 4 a 10 metros, la profundidad varia según el desenvolvimiento del buzo discovery",
+          "No necesitas experiencia",
+          "No necesitas licencia",
+          "Incluye 2 inmersiones: Bahía Darwin y Pared de Tijeretas o Barco Hundido"
+        ],
+        "price": 200
+      },
+      {
+        "ref": "af33e376-086d-47bd-89e3-6306de9e8fe3",
+        "title": "Caragua",
+        "description": "",
+        "included": [
+          "Equipos de Scuba",
+          "Profundidad máxima de 15 metros",
+          "Experiencia: 5 inmersiones como mínimo",
+          "Incluye 2 inmersiones: Bahía Darwin o Pared de Tijeretas y Wreck Ship Caragua"
+        ],
+        "price": 180
+      },
+      {
+        "ref": "f0d7890e-bd86-4dcd-8799-9f6e92ba4e42",
+        "title": "Kicker Rock",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de Scuba completo",
+          "Guía Naturalista Bilingüe",
+          "Visita de Kicker Rock + una playa según itinerario del día",
+          "Profundidad máxima de 20 metros",
+          "Experiencia: 10 inmersiones como mínimo",
+          "Licencia requerida Open Water Diver",
+          "Incluye 2 inmersiones: Bahía Darwin o Pared de Tijeretas y Wreck Ship Caragua",
+          "Almuerzo a bordo",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 190
+      },
+      {
+        "ref": "0d0f7edc-0ee8-4d71-bee6-326b4d74a0a9",
+        "title": "Roca Ballena",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de Scuba completo",
+          "Guía Naturalista Bilingüe",
+          "Profundidad máxima de 20 metros",
+          "Experiencia: 15 inmersiones como mínimo",
+          "Licencia requerida Advance Open Water Diver",
+          "Incluye 2 inmersiones: Roca Ballena y Barco hundido",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 190
+      },
+      {
+        "ref": "0d0f7edc-0ee8-4d71-bee6-326b4d74a0a9",
+        "title": "Cerro Mundo",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de Scuba completo",
+          "Instructor de buceo bilingüe",
+          "Profundidad máxima de 20 metros",
+          "Experiencia: 15 inmersiones como mínimo",
+          "Licencia requerida Advance Open Water Diver",
+          "Incluye 2 inmersiones: Cerro Mundo y Barco hundido",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 180
+      },
+      {
+        "ref": "0d0f7edc-0ee8-4d71-bee6-326b4d74a0a9",
+        "title": "Cuevas de Hitler",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de Scuba completo",
+          "Instructor de buceo bilingüe",
+          "Profundidad máxima de 38 metros",
+          "Experiencia: 50 inmersiones como mínimo",
+          "Licencia requerida Rescue",
+          "Incluye 2 inmersiones: Cuevas de Hitler y Wreck Ship Caragua o Bahía Darwin",
+          "Snacks y bebidas",
+          "Servicio de camareros y atención pertinente por parte de la tripulación"
+        ],
+        "price": 180
+      }
+    ],
+    "land": [
+      {
+        "ref": "7f6214ac-ea12-4bfe-89ef-8f1068e8d95f",
+        "title": "Tour de Darwin (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y proteccion",
+          "Servicio de guardavidas",
+          "5 paradas de visita",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Fotografía submarina"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "26815aa5-5d13-4ee5-a9fa-470f6152ef7a",
+        "title": "Tortuga Tour (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y protección",
+          "Servicio de guardavidas",
+          "5 paradas de visita",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Go Pro"
+        ],
+        "price": 350
+      },
+      {
+        "ref": "6a97a13b-0814-4d98-8bc1-8fb550a235e0",
+        "title": "Kayaking tour (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y protección",
+          "Servicio de guardavidas",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Go Pro"
+        ],
+        "price": 300
+      },
+      {
+        "ref": "240717e9-6d4d-43af-9d7a-557768c1a9cd",
+        "title": "Surfing (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de surfing y protección",
+          "Servicio de guardavidas/instructor",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Go Pro"
+        ],
+        "price": 300
+      },
+      {
+        "ref": "e40e9f88-d08c-4780-b9c2-f04acebc3d47",
+        "title": "Snorkeling Tour (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y protección",
+          "Servicio de guardavidas/instructor",
+          "Lugares de libre elección",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Go Pro"
+        ],
+        "price": 200
+      },
+      {
+        "ref": "ca0ca868-7893-428b-b78c-0f923f4664c1",
+        "title": "Paddleboard Tour (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de snorkel y protección",
+          "Servicio de guardavidas/instructor",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Go Pro"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "9b76d9c4-3955-4185-8799-4cb2d402a374",
+        "title": "Free diving Tour (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Equipos de apnea y protección",
+          "Servicio de guardavidas/instructor",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Go Pro"
+        ],
+        "price": 360
+      },
+      {
+        "ref": "3faf052e-fc98-4747-9cff-e7f1315f87ac",
+        "title": "Agricultura y consevación ambiental Tour (Paquete de 4 personas)",
+        "description": "",
+        "included": [
+          "Transfer",
+          "Participación y exploración en la vida silvestre de las actividades agrícolas",
+          "Almuerzo",
+          "Snacks y bebidas",
+          "Fotografía"
+        ],
+        "price": 200
+      }
+    ]
+  },
+  "sx": {
+    "snorkel": [
+      {
+        "ref": "0535c9d1-d0b6-4ff4-add3-26282c9393cb",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "e3f0e79a-8970-4805-89bb-d8e4b11a0350",
+        "title": "FRIntermedium",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "a08f1717-edd8-4b7b-aef4-79848d3ec1f0",
+        "title": "FRAdvanced",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "f0711c0b-cbb0-4672-9fbc-e30890371779",
+        "title": "FRDive Master",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "dive": [
+      {
+        "ref": "d8242ce5-0794-4131-b135-49fae8501ce8",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "5f91dd35-1258-4da8-9800-dafc2590517b",
+        "title": "FRIntermedium",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "a233ee11-67c8-4b8d-80c8-1d0dde8764d7",
+        "title": "FRAdvanced",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "400dcf33-4c8d-4a01-9523-b4595c54f733",
+        "title": "FRDive Master",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "land": [
+      {
+        "ref": "069ed801-a9c3-4239-9c54-ee4664afb108",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "1f16ec12-b3ef-44bc-8fa6-3a8e9a560430",
+        "title": "FRIntermedium",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "93aa92a2-96b3-4574-b927-0a3798f94df6",
+        "title": "FRAdvanced",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "8e861b29-18ee-42df-a4ed-a9da0b27a7c7",
+        "title": "FRDive Master",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ]
+  },
+  "ib": {
+    "snorkel": [
+      {
+        "ref": "c67b9724-7f10-40c0-a15d-d60dca9cecdd",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "f5ad450c-c167-4a09-8599-2806f2e93cf6",
+        "title": "FRIntermedium",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "2b4a8b31-b992-4c86-bccb-48d92983a47e",
+        "title": "FRAdvanced",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "a68ff4da-5354-4564-9569-7852863ddb63",
+        "title": "FRDive Master",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "dive": [
+      {
+        "ref": "63f07eb4-9f62-49e3-917d-e8b479747d82",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "bff7964b-5087-4eeb-a7a4-8704737126e9",
+        "title": "FRIntermedium",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "2951f00e-642e-416f-b7c1-eea5c285b94a",
+        "title": "FRAdvanced",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "b2aa40d8-c37f-4b6c-a759-25ce0012a212",
+        "title": "FRDive Master",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ],
+    "land": [
+      {
+        "ref": "6af98d2f-a439-4510-ae7c-f5fb1b268b3c",
+        "title": "FROpen Water",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "a556ccc1-723b-48b9-8f9a-bc276827cba1",
+        "title": "FRIntermedium",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "8a1f1205-1c7d-44f6-a6d8-4a521c915d07",
+        "title": "FRAdvanced",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      },
+      {
+        "ref": "02dd452d-ad36-46f6-b388-acfd624213b2",
+        "title": "FRDive Master",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "included": [
+          "Hola",
+          "Mundo",
+          "Logiciel",
+          "Applab",
+          "Saludos"
+        ],
+        "price": 250
+      }
+    ]
+  }
+}]
