@@ -22,25 +22,22 @@ func CoursesInfoHandler(c *gin.Context) {
 	decoder := json.NewDecoder(f)
 	err = decoder.Decode(&coursesInfo)
 
-	fmt.Println(coursesInfo)
-
 	for _, v := range coursesInfo {
-		if v.GetLang(language) {
+		if v.GetLang(language, "coursesInfo") {
 			for _, cs := range v.CsInfo {
 				if cs.GetCourse(reference) {
+					fmt.Println(cs)
 					c.Writer.WriteHeader(http.StatusOK)
 					c.Writer.Header().Set("Content-Type", "application/json")
 					d, _ := json.Marshal(cs)
+					fmt.Println(string(d))
 					c.Writer.Write(d)
+					break
 				}
 			}
+			break
 		}
 	}
-
-	c.Writer.WriteHeader(http.StatusOK)
-	c.Writer.Header().Set("Content-Type", "application/json")
-	d, _ := json.Marshal("")
-	c.Writer.Write(d)
 }
 func CoursesInfoImgHandler(c *gin.Context) {
 	reference := c.Param("ref")

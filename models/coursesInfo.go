@@ -7,8 +7,8 @@ type CoursesInfo struct {
 	CsInfo []CourseInfo `json:"coursesInfo"`
 }
 
-func (ci *CoursesInfo) GetLang(lang string) bool {
-	if ci.Id == utils.GetLang(lang, "coursesInfo") {
+func (ci *CoursesInfo) GetLang(lang, route string) bool {
+	if ci.Id == utils.GetLang(lang, route) {
 		return true
 	}
 	return false
